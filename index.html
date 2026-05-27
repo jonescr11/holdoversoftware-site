@@ -424,18 +424,13 @@
         <p class="wordmark-sub">BALLISTICS</p>
         <p class="tagline">Ballistics, simplified. Coming to iOS.</p>
 
-        <!--
-            Email signup form.
-            TODO: Wire this to a Cloudflare Workers endpoint or Mailchimp embed.
-            For now, the action points to a placeholder. Replace with your
-            actual endpoint when ready, e.g.:
-              action="https://api.holdoversoftware.com/signup"
-            Or integrate Mailchimp's embedded form action URL.
-        -->
-        <form class="signup-form" action="https://api.holdoversoftware.com/notify" method="POST">
-            <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address">
-            <button type="submit">Notify Me</button>
-        </form>
+        <!-- Email signup — handled by Cloudflare Worker at worker/index.js -->
+        <div id="signup-container">
+            <form class="signup-form" action="https://api.holdoversoftware.com/notify" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address">
+                <button type="submit">Notify Me</button>
+            </form>
+        </div>
 
         <div class="app-store-badge">
             <svg class="apple-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -612,6 +607,29 @@
         </p>
         <p class="footer-copy">&copy; 2026 Holdover Software</p>
     </footer>
+
+    <script>
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('subscribed') === 'true') {
+            var container = document.getElementById('signup-container');
+            if (container) {
+                container.innerHTML = '<p style="color:#E8B84B;font-size:1.2rem;font-weight:600;padding:14px 0;">You\'re on the list!</p>';
+            }
+            // Clean URL without reload
+            history.replaceState(null, '', window.location.pathname);
+        } else if (params.get('error') === 'invalid') {
+            var container = document.getElementById('signup-container');
+            if (container) {
+                var msg = document.createElement('p');
+                msg.style.cssText = 'color:#ff3b30;font-size:0.9rem;margin-top:8px;';
+                msg.textContent = 'Please enter a valid email address.';
+                container.appendChild(msg);
+            }
+            history.replaceState(null, '', window.location.pathname);
+        }
+    })();
+    </script>
 
 </body>
 </html>
