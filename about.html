@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — Holdover</title>
-    <meta name="description" content="Privacy policy for the Holdover ballistics app. We do not collect, store, or transmit any personal data.">
+    <title>About — Holdover</title>
+    <meta name="description" content="Holdover is a precision ballistics calculator developed by CM Collective LLC, a Minnesota limited liability company.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'><circle cx='512' cy='512' r='400' fill='%23E8B84B'/><g stroke='%231a1a1a' fill='none' stroke-linecap='round'><line x1='272' y1='512' x2='752' y2='512' stroke-width='22'/><line x1='512' y1='272' x2='512' y2='512' stroke-width='22'/><line x1='512' y1='512' x2='512' y2='752' stroke-width='22'/><line x1='462' y1='572' x2='562' y2='572' stroke-width='22'/><line x1='442' y1='632' x2='582' y2='632' stroke-width='22'/><line x1='422' y1='692' x2='602' y2='692' stroke-width='22'/></g><circle cx='512' cy='512' r='20' fill='%231a1a1a'/></svg>">
     <style>
         *, *::before, *::after {
@@ -110,9 +110,9 @@
             margin-bottom: 8px;
         }
 
-        .effective-date {
+        .lede {
             color: #a0a0a0;
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-bottom: 48px;
         }
 
@@ -130,6 +130,40 @@
             font-size: 1rem;
         }
 
+        .principles {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        .principles li {
+            color: #ccc;
+            font-size: 1rem;
+            padding: 10px 0 10px 22px;
+            position: relative;
+            border-bottom: 1px solid #222;
+        }
+
+        .principles li:last-child {
+            border-bottom: none;
+        }
+
+        .principles li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 19px;
+            width: 6px;
+            height: 6px;
+            background: #E8B84B;
+            border-radius: 50%;
+        }
+
+        .principles li strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
         a {
             color: #E8B84B;
             text-decoration: none;
@@ -137,6 +171,30 @@
 
         a:hover {
             text-decoration: underline;
+        }
+
+        .info-box {
+            margin-top: 32px;
+            padding: 20px 24px;
+            background: #222;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+        }
+
+        .info-box dl {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 8px 16px;
+            font-size: 0.95rem;
+        }
+
+        .info-box dt {
+            color: #a0a0a0;
+            font-weight: 500;
+        }
+
+        .info-box dd {
+            color: #fff;
         }
 
         .footer {
@@ -149,6 +207,7 @@
         .footer p {
             color: #555;
             font-size: 0.8rem;
+            margin-bottom: 6px;
         }
     </style>
 </head>
@@ -169,42 +228,56 @@
         </a>
         <div class="topnav-links">
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a href="about.html" class="active">About</a>
             <a href="contact.html">Contact</a>
             <a href="terms.html">Terms</a>
-            <a href="privacy.html" class="active">Privacy</a>
+            <a href="privacy.html">Privacy</a>
         </div>
     </nav>
 
     <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="effective-date">Effective: May 2026</p>
+        <h1>About</h1>
+        <p class="lede">The company behind Holdover.</p>
 
-        <h2>App</h2>
-        <p><strong>Holdover</strong> is a ballistics calculator developed by CM Collective LLC, a Minnesota limited liability company. holdoversoftware.com is owned and operated by CM Collective LLC.</p>
+        <h2>The App</h2>
+        <p><strong>Holdover</strong> is a precision ballistics calculator for iOS — built for sport shooters, hunters, and long-range competitors. It produces sub-MOA drop solutions using G1 and G7 drag models, walks shooters through guided zeroing on a tap-to-place target, and ships with a curated library of factory loads with verified ballistic coefficients. Every calculation runs locally on the device. No cell service required.</p>
 
-        <h2>Data Collection</h2>
-        <p>Holdover does not collect, store, or transmit any personal data. All ballistic profiles, settings, and calculations are stored locally on your device.</p>
+        <h2>The Company</h2>
+        <p><strong>CM Collective LLC</strong> is a Minnesota limited liability company. CM Collective LLC owns and operates this website (holdoversoftware.com), develops the Holdover app, and is the legal entity responsible for distribution on the App Store.</p>
 
-        <h2>Analytics</h2>
-        <p>We do not use third-party analytics or tracking services. No usage data, device identifiers, or behavioral information is collected or shared with any third party.</p>
+        <p>CM Collective LLC is an independent software studio founded by Clint Jones, a Marine veteran, hunter, and product manager.</p>
 
-        <h2>Network Usage</h2>
-        <p>Holdover does not require an internet connection to function. The app performs all calculations on-device and does not communicate with external servers during normal use.</p>
+        <div class="info-box">
+            <dl>
+                <dt>Legal Name</dt>
+                <dd>CM Collective LLC</dd>
+                <dt>Product</dt>
+                <dd>Holdover</dd>
+                <dt>State of Formation</dt>
+                <dd>Minnesota</dd>
+                <dt>Address</dt>
+                <dd>193 Ridgeview Dr, Wayzata, MN 55391</dd>
+                <dt>Website</dt>
+                <dd><a href="https://holdoversoftware.com">holdoversoftware.com</a></dd>
+                <dt>Contact</dt>
+                <dd><a href="mailto:hello@holdoversoftware.com">hello@holdoversoftware.com</a></dd>
+            </dl>
+        </div>
 
-        <h2>Data Sharing</h2>
-        <p>Since we do not collect any data, there is no data to share, sell, or transfer to third parties.</p>
+        <h2>Principles</h2>
+        <p>Holdover is built around five principles that shape every interaction in the app — from the 60-second first-profile flow to the high-contrast, sunlight-readable drop tables.</p>
+        <ul class="principles">
+            <li><strong>Shoot first, configure later.</strong> Get to a useful drop table in under a minute.</li>
+            <li><strong>Never betray trust.</strong> No crashes, no data loss, no silently wrong numbers.</li>
+            <li><strong>The range is the context.</strong> Big targets, high contrast, sunlight-readable, one-handed.</li>
+            <li><strong>Progressive disclosure.</strong> Casual shooters see simple. Power users unlock advanced.</li>
+            <li><strong>Offline-first.</strong> Everything works without cell service.</li>
+        </ul>
 
-        <h2>Children's Privacy</h2>
-        <p>We do not knowingly collect any information from anyone, including children under 13 years of age.</p>
-
-        <h2>Changes to This Policy</h2>
-        <p>If we update this privacy policy, the revised version will be posted on this page with a new effective date.</p>
-
-        <h2>Contact</h2>
-        <p>If you have questions about this privacy policy, contact CM Collective LLC at <a href="mailto:hello@holdoversoftware.com">hello@holdoversoftware.com</a>.</p>
+        <p>For privacy and data-handling details, see the <a href="privacy.html">Privacy Policy</a>. For terms of use, see the <a href="terms.html">Terms of Service</a>. For inquiries, see <a href="contact.html">Contact</a>.</p>
 
         <div class="footer">
+            <p>Holdover is a product of CM Collective LLC.</p>
             <p>&copy; 2026 CM Collective LLC</p>
         </div>
     </div>
