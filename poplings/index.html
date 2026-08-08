@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poplings: a calm balloon toy for ages 3 to 8</title>
+    <meta name="description" content="Poplings is a free, gentle tapping toy for kids 3 to 8. Three hand-drawn worlds, 37 Poplings to find, no ads, no in-app purchases, no accounts, no data collected, and no way to lose.">
+    <meta property="og:title" content="Poplings: a calm balloon toy for ages 3 to 8">
+    <meta property="og:description" content="Tap the balloons, see who's inside. Free, with no ads, no in-app purchases, no accounts, and nothing collected. Works completely offline.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://holdoversoftware.com/poplings/">
+    <meta property="og:image" content="https://holdoversoftware.com/assets/poplings/icon.png">
+    <link rel="icon" href="/assets/poplings/icon.png">
+
+    <!-- =====================================================================
+         POPLINGS LANDING PAGE  (/poplings/)
+
+         The app had a different working name before launch. Both the pages and
+         the asset folder now use the Poplings name: pages at /poplings/, images
+         and fonts at /assets/poplings/. Nothing here still refers to the old
+         name.
+
+         All asset and page links here are ROOT-RELATIVE on purpose, so this
+         page can be moved again without breaking.
+
+         KEEP THE CLAIMS IN SYNC WITH THE SHIPPING APP AND THE APP STORE
+         LISTING. Everything on this page is a promise a parent will check:
+         free, no ads, no in-app purchases, no accounts, no data collected, no
+         internet needed, 37 Poplings, 3 worlds. If any of those change in the
+         app, change them here and on /poplings/privacy/ and /poplings/support/
+         in the same edit.
+         ===================================================================== -->
+    <style>
+        /* ====================================================================
+           FONTS: the same self-hosted woff2 files the app ships, so the site
+           and the app read as one thing. Local files, never a CDN link: a font
+           request to a third party would put a visitor's IP in someone else's
+           log, and this is the page parents come to in order to check exactly
+           that. Licensed SIL OFL 1.1 (see fonts/OFL.txt).
+           ==================================================================== */
+        @font-face {
+            font-family: 'BP Display';
+            src: url('/assets/poplings/fonts/baloo2.woff2') format('woff2');
+            font-weight: 400 800;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'BP UI';
+            src: url('/assets/poplings/fonts/fredoka.woff2') format('woff2');
+            font-weight: 300 700;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'BP Hand';
+            src: url('/assets/poplings/fonts/patrickhand.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'BP Data';
+            src: url('/assets/poplings/fonts/nunito.woff2') format('woff2');
+            font-weight: 200 1000;
+            font-display: swap;
+        }
+
+        :root {
+            --paper: #FFF8EC;
+            --paper-warm: #F6EBD8;
+            --ink: #3A2E28;
+            --ink-soft: #6B5A50;
+            --red: #E0553F;
+            --orange: #F2A63C;
+            --blue: #6FC4E0;
+            --purple: #C9A2E8;
+            --green: #7DC96F;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'BP UI', system-ui, -apple-system, sans-serif;
+            /* The craft table: warm paper with a faint woven grain. */
+            background-color: var(--paper);
+            background-image:
+                repeating-linear-gradient(90deg, rgba(58,46,40,0.028) 0 1px, transparent 1px 4px),
+                repeating-linear-gradient(0deg, rgba(58,46,40,0.02) 0 1px, transparent 1px 5px);
+            color: var(--ink);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3 {
+            font-family: 'BP Display', system-ui, sans-serif;
+            line-height: 1.15;
+        }
+
+        /* ---- Nav: its own, kids-side only. Deliberately no link to the
+           studio's other app. See the note in the footer. ---- */
+        .topnav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 22px;
+            background: rgba(255, 248, 236, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(58, 46, 40, 0.1);
+        }
+
+        .topnav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .topnav-brand img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 2px solid var(--ink);
+            display: block;
+        }
+
+        .topnav-brand .name {
+            font-family: 'BP Display', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--red);
+        }
+
+        .topnav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .topnav-links a {
+            color: var(--ink-soft);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.15s;
+        }
+
+        .topnav-links a:hover { color: var(--red); }
+        .topnav-links a.active { color: var(--red); }
+
+        @media (max-width: 620px) {
+            .topnav { padding: 10px 14px; }
+            .topnav-brand .name { font-size: 0.92rem; }
+            .topnav-links { gap: 13px; }
+            .topnav-links a { font-size: 0.8rem; }
+        }
+
+        /* ---- Taped card: the app's signature. A cream card with masking-tape
+           strips at the top corners, sitting very slightly crooked. ---- */
+        .taped {
+            position: relative;
+            background: #FFFDF6;
+            border: 3px solid var(--ink);
+            border-radius: 20px;
+            box-shadow: 0 8px 0 rgba(58, 46, 40, 0.14), 0 16px 30px rgba(58, 46, 40, 0.1);
+        }
+
+        .taped::before, .taped::after {
+            content: '';
+            position: absolute;
+            top: -13px;
+            width: 74px;
+            height: 26px;
+            background: rgba(240, 218, 160, 0.62);
+            border-left: 1px dashed rgba(180, 150, 90, 0.4);
+            border-right: 1px dashed rgba(180, 150, 90, 0.4);
+        }
+
+        .taped::before { left: 22px; transform: rotate(-4deg); }
+        .taped::after { right: 22px; transform: rotate(3.5deg); }
+
+        /* ---- Hero ---- */
+        .hero {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 56px 22px 40px;
+            text-align: center;
+        }
+
+        .hero .app-icon {
+            width: 108px;
+            height: 108px;
+            border-radius: 26px;
+            border: 3px solid var(--ink);
+            box-shadow: 0 6px 0 rgba(58, 46, 40, 0.16);
+            margin: 0 auto 22px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.3rem, 8vw, 3.7rem);
+            font-weight: 800;
+            color: var(--red);
+            margin-bottom: 10px;
+        }
+
+        .hero .sub {
+            font-family: 'BP Hand', cursive;
+            font-size: clamp(1.15rem, 3.6vw, 1.55rem);
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .hero .ages {
+            display: inline-block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink);
+            background: var(--orange);
+            border: 2.5px solid var(--ink);
+            border-radius: 999px;
+            padding: 4px 16px;
+            box-shadow: 0 3px 0 var(--ink);
+            margin: 14px 0 26px;
+        }
+
+        .hero .lede {
+            font-size: clamp(1rem, 2.4vw, 1.14rem);
+            color: var(--ink-soft);
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        /* ---- Coming soon block ---- */
+        .status-card {
+            max-width: 520px;
+            margin: 34px auto 0;
+            padding: 28px 30px;
+            text-align: center;
+        }
+
+        .status-card h2 {
+            font-size: 1.35rem;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .status-card p {
+            font-size: 0.96rem;
+            color: var(--ink-soft);
+            margin-bottom: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            font-family: 'BP UI', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-decoration: none;
+            background: var(--orange);
+            border: 3px solid var(--ink);
+            border-radius: 14px;
+            padding: 11px 26px;
+            box-shadow: 0 5px 0 var(--ink);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 0 var(--ink); }
+        .btn:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--ink); }
+        .btn.calm { background: var(--blue); }
+
+        /* App Store button. The Apple mark earns real trust on a kids app from an
+           unknown developer, so it is drawn inline as SVG rather than loaded as an
+           image: no extra request, no CDN, and it inherits the button's ink colour.
+           Sized against the cap height of the label so it sits on the text
+           baseline instead of floating above it. */
+        .btn-appstore {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-appstore .apple-logo {
+            width: 17px;
+            height: 21px;
+            flex: 0 0 auto;
+            /* The glyph's optical centre sits low, so nudge it up a hair. */
+            margin-top: -2px;
+        }
+
+        /* ---- Promise strip: the four things parents check first ---- */
+        .promises {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            padding: 0 22px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        .promise {
+            flex: 1 1 210px;
+            max-width: 240px;
+            background: var(--paper-warm);
+            border: 2.5px solid var(--ink);
+            border-radius: 16px;
+            padding: 18px 18px 16px;
+            text-align: center;
+            box-shadow: 0 4px 0 rgba(58, 46, 40, 0.14);
+        }
+
+        .promise .mark {
+            display: block;
+            width: 34px;
+            height: 34px;
+            margin: 0 auto 10px;
+        }
+
+        .promise strong {
+            display: block;
+            font-family: 'BP Display', sans-serif;
+            font-size: 1.02rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .promise span {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        /* ---- Sections ---- */
+        section.band {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 68px 22px 0;
+        }
+
+        .band-head {
+            text-align: center;
+            margin-bottom: 34px;
+        }
+
+        .band-head h2 {
+            font-size: clamp(1.6rem, 4.4vw, 2.15rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .band-head p {
+            color: var(--ink-soft);
+            font-size: 1rem;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        /* ---- Worlds ---- */
+        .worlds {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
+            justify-content: center;
+        }
+
+        .world {
+            flex: 1 1 280px;
+            max-width: 320px;
+            text-align: center;
+        }
+
+        .world .shot {
+            width: 100%;
+            max-width: 276px;
+            /* aspect-ratio reserves the box before the lazy image arrives;
+               height:auto is required so the width/height attributes do not
+               pin the rendered height to the intrinsic 1200px. */
+            aspect-ratio: 552 / 1200;
+            height: auto;
+            border: 3px solid var(--ink);
+            border-radius: 22px;
+            display: block;
+            margin: 0 auto 16px;
+            box-shadow: 0 7px 0 rgba(58, 46, 40, 0.14);
+            background: #fff;
+        }
+
+        .world h3 {
+            font-size: 1.22rem;
+            margin-bottom: 5px;
+        }
+
+        .world p {
+            font-size: 0.92rem;
+            color: var(--ink-soft);
+        }
+
+        .world.crayon h3 { color: var(--orange); }
+        .world.paper h3 { color: var(--blue); }
+        .world.squish h3 { color: var(--purple); }
+
+        /* ---- Feature rows: screenshot beside the explanation ---- */
+        .rows {
+            display: flex;
+            flex-direction: column;
+            gap: 54px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 38px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .row:nth-child(even) { flex-direction: row-reverse; }
+
+        .row .shot {
+            flex: 0 0 250px;
+            width: 250px;
+            aspect-ratio: 552 / 1200;
+            height: auto;
+            border: 3px solid var(--ink);
+            border-radius: 22px;
+            display: block;
+            box-shadow: 0 7px 0 rgba(58, 46, 40, 0.14);
+            background: #fff;
+        }
+
+        .row .copy {
+            flex: 1 1 340px;
+            max-width: 460px;
+        }
+
+        .row .copy .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--ink);
+            background: var(--paper-warm);
+            border: 2px solid var(--ink);
+            border-radius: 999px;
+            padding: 2px 11px;
+            margin-bottom: 11px;
+        }
+
+        .row .copy h3 {
+            font-size: 1.45rem;
+            margin-bottom: 9px;
+        }
+
+        .row .copy p {
+            color: var(--ink-soft);
+            font-size: 0.98rem;
+            margin-bottom: 10px;
+        }
+
+        .row .copy p:last-child { margin-bottom: 0; }
+
+        /* ---- Parent panel ---- */
+        .parents {
+            max-width: 780px;
+            margin: 68px auto 0;
+            padding: 0 22px;
+        }
+
+        .parent-card {
+            padding: 36px 34px 32px;
+        }
+
+        .parent-card h2 {
+            font-size: clamp(1.5rem, 4vw, 1.95rem);
+            margin-bottom: 8px;
+            color: var(--red);
+        }
+
+        .parent-card > p.intro {
+            color: var(--ink-soft);
+            margin-bottom: 24px;
+        }
+
+        .facts {
+            list-style: none;
+            margin: 0 0 26px;
+            padding: 0;
+        }
+
+        .facts li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 13px 0;
+            border-top: 2px dashed rgba(58, 46, 40, 0.16);
+            font-size: 0.96rem;
+        }
+
+        .facts li:last-child { border-bottom: 2px dashed rgba(58, 46, 40, 0.16); }
+
+        .facts li b {
+            font-family: 'BP Display', sans-serif;
+            flex: 0 0 122px;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .facts li span {
+            flex: 1 1 auto;
+            color: var(--ink-soft);
+        }
+
+        .parent-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        @media (max-width: 520px) {
+            .facts li { flex-direction: column; gap: 2px; }
+            .facts li b { flex: none; }
+            .row .shot { flex: 0 0 210px; width: 210px; }
+        }
+
+        /* ---- Veteran bar, restyled for the craft table ---- */
+        .vet-bar {
+            max-width: 1000px;
+            margin: 68px auto 0;
+            padding: 0 22px;
+        }
+
+        .vet-bar .inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 11px;
+            padding: 13px 20px;
+            background: var(--paper-warm);
+            border: 2.5px solid var(--ink);
+            border-radius: 14px;
+            box-shadow: 0 4px 0 rgba(58, 46, 40, 0.14);
+            font-size: 0.86rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .vet-bar .flag {
+            width: 26px;
+            height: 15px;
+            border-radius: 2px;
+            border: 1px solid rgba(58, 46, 40, 0.35);
+            flex-shrink: 0;
+        }
+
+        /* ---- Footer: kids-side only ---- */
+        .footer {
+            margin-top: 74px;
+            padding: 34px 22px 42px;
+            text-align: center;
+            border-top: 2px solid rgba(58, 46, 40, 0.12);
+        }
+
+        .footer .f-brand {
+            font-family: 'BP Display', sans-serif;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 10px;
+        }
+
+        .footer .f-links a {
+            color: var(--ink-soft);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .footer .f-links a:hover { color: var(--red); }
+
+        .footer .f-links span {
+            color: rgba(58, 46, 40, 0.28);
+            margin: 0 10px;
+        }
+
+        .footer .f-copy {
+            font-size: 0.8rem;
+            color: var(--ink-soft);
+            opacity: 0.8;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =====================================================================
+         KIDS-SIDE NAV. This page and everything under /poplings/ keeps its
+         own header, footer and legal pages, and links only within itself.
+         ===================================================================== -->
+    <nav class="topnav">
+        <a href="/poplings/" class="topnav-brand" aria-label="Poplings home">
+            <img src="/assets/poplings/icon.png" alt="" width="32" height="32">
+            <span class="name">Poplings</span>
+        </a>
+        <div class="topnav-links">
+            <a href="/poplings/" class="active">Home</a>
+            <a href="/poplings/support/">For Parents</a>
+            <a href="/poplings/privacy/">Privacy</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <img class="app-icon" src="/assets/poplings/icon.png" alt="Poplings app icon: Toot the mascot on a blue burst" width="108" height="108">
+        <h1>Poplings</h1>
+        <p class="sub">Tap the balloons, see who&rsquo;s inside!</p>
+        <p class="ages">Made for ages 3 to 8</p>
+        <p class="lede">A calm, cheerful balloon toy for small hands. Balloons drift up, a tap pops them with a happy sound, and every so often a little creature is hiding inside. There is no timer, no score, and no way to lose.</p>
+
+        <div class="status-card taped">
+            <h2>Poplings is out</h2>
+            <p>Free on iPhone and iPad, with no ads, nothing to buy, and no internet needed.</p>
+            <!-- ⚠️ PASTE THE REAL APP STORE URL INTO href WHEN THE LISTING IS LIVE.
+                 Left empty on purpose: a dead link to a made-up path is worse than
+                 an inert button, and App Store URLs contain the numeric app id
+                 which does not exist until the record is published. It will look
+                 like this: https://apps.apple.com/app/poplings/id0000000000 -->
+            <a class="btn btn-appstore" href="">
+                <svg class="apple-logo" viewBox="0 0 17 21" aria-hidden="true" focusable="false">
+                    <path d="M14.03 11.1c.01-2.2 1.79-3.26 1.87-3.31-1.02-1.5-2.61-1.7-3.17-1.73-1.35-.14-2.63.79-3.31.79-.69 0-1.74-.77-2.86-.75-1.47.02-2.83.86-3.58 2.17-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.24 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.87.69 1.19-.02 1.95-1.08 2.68-2.14.84-1.22 1.19-2.4 1.21-2.46-.03-.01-2.32-.89-2.34-3.53M11.9 4.2c.6-.73 1-1.74.89-2.75-.86.04-1.91.58-2.53 1.3-.56.64-1.04 1.67-.91 2.66.96.07 1.94-.49 2.55-1.21" fill="currentColor"/>
+                </svg>
+                <span>Download on the App Store</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- The four things a parent checks first, answered before being asked -->
+    <div class="promises">
+        <div class="promise">
+            <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <circle cx="20" cy="20" r="17" fill="#7DC96F" stroke="#3A2E28" stroke-width="2.5"/>
+                <path d="M12 20.5l5.5 5.5L28 15" stroke="#3A2E28" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <strong>Free, no ads</strong>
+            <span>Nothing to buy, and not one ad. Ever.</span>
+        </div>
+        <div class="promise">
+            <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <rect x="8" y="17" width="24" height="16" rx="3.5" fill="#6FC4E0" stroke="#3A2E28" stroke-width="2.5"/>
+                <path d="M14 17v-4a6 6 0 0112 0v4" stroke="#3A2E28" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="20" cy="25" r="2.4" fill="#3A2E28"/>
+            </svg>
+            <strong>Nothing collected</strong>
+            <span>No accounts, no analytics, no tracking of any kind.</span>
+        </div>
+        <div class="promise">
+            <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M8 27c3.5-2.5 5.5-6 5.5-6M20 6v8" stroke="#3A2E28" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M11 12l18 18M29 12L11 30" stroke="#E0553F" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="20" cy="21" r="14" stroke="#3A2E28" stroke-width="2.5"/>
+            </svg>
+            <strong>Works offline</strong>
+            <span>No internet needed, on a plane or in the car.</span>
+        </div>
+        <div class="promise">
+            <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <circle cx="20" cy="20" r="17" fill="#F2A63C" stroke="#3A2E28" stroke-width="2.5"/>
+                <circle cx="15" cy="17" r="2.2" fill="#3A2E28"/>
+                <circle cx="25" cy="17" r="2.2" fill="#3A2E28"/>
+                <path d="M13.5 24.5c2 2.8 11 2.8 13 0" stroke="#3A2E28" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+            <strong>No way to lose</strong>
+            <span>Calm Play has no timer, no score, no game over.</span>
+        </div>
+    </div>
+
+    <!-- Three worlds -->
+    <section class="band">
+        <div class="band-head">
+            <h2>Three worlds, all drawn by hand</h2>
+            <p>Pick a world and the whole screen changes: the paper, the balloons, the sounds, and the Poplings hiding inside.</p>
+        </div>
+        <div class="worlds">
+            <div class="world crayon">
+                <img class="shot" src="/assets/poplings/play-crayon.png" alt="Poplings Crayon world: crayon-drawn balloons floating over a ruled notebook page" loading="lazy" width="552" height="1200">
+                <h3>Crayon</h3>
+                <p>A homework page. Wobbly crayon balloons, scribbled in over the lines.</p>
+            </div>
+            <div class="world paper">
+                <img class="shot" src="/assets/poplings/play-paper.png" alt="Poplings Paper Party world: cut-paper balloons on a kraft paper scrapbook page" loading="lazy" width="552" height="1200">
+                <h3>Paper Party</h3>
+                <p>A scrapbook page. Balloons cut from construction paper and taped down.</p>
+            </div>
+            <div class="world squish">
+                <img class="shot" src="/assets/poplings/play-squish.png" alt="Poplings Squish world: soft glossy toy balloons with big friendly eyes" loading="lazy" width="552" height="1200">
+                <h3>Squish</h3>
+                <p>A toy shelf. Soft, glossy little figures that squash when you press them.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature rows -->
+    <section class="band">
+        <div class="band-head">
+            <h2>What&rsquo;s inside</h2>
+            <p>Four things to do, and one of them is just for grown-ups.</p>
+        </div>
+        <div class="rows">
+
+            <div class="row">
+                <img class="shot" src="/assets/poplings/home.png" alt="Poplings home screen with big Play, Pop Party and Poplings buttons" loading="lazy" width="552" height="1200">
+                <div class="copy">
+                    <span class="tag">Play</span>
+                    <h3>The calm one</h3>
+                    <p>Balloons float up at whatever pace suits. Tap one and it pops with a cheerful little chime. Nothing counts down, nothing keeps score, and nothing ever says you did it wrong.</p>
+                    <p>Every button is big enough for a three-year-old to hit on the first try, and the app never asks a child to read anything to get going.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <img class="shot" src="/assets/poplings/reveal.png" alt="A Popling revealed from a popped balloon, labelled NEW POPLING!" loading="lazy" width="552" height="1200">
+                <div class="copy">
+                    <span class="tag">Surprises</span>
+                    <h3>Someone hiding inside</h3>
+                    <p>Now and then a balloon has a little creature tucked inside it. Those are the Poplings. Each one gets its own sound, its own name, and a spot in My Poplings.</p>
+                    <p>There are 37 in all, and a crayon cat looks crayoned while a clay bear looks squeezed. Toot, the mascot, turns up in every world. Finding them is the only collecting the app asks for, and it is never behind a purchase.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <img class="shot" src="/assets/poplings/my-poplings.png" alt="The My Poplings screen showing found Poplings and empty spots still to fill" loading="lazy" width="552" height="1200">
+                <div class="copy">
+                    <span class="tag">My Poplings</span>
+                    <h3>A page to fill up</h3>
+                    <p>Every Popling found gets pressed into the book. The empty spots stay visible, which is the whole appeal: a small child can see exactly how much there is left to find.</p>
+                    <p>Tapping one plays its sound again. It works as a quiet activity all by itself.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <img class="shot" src="/assets/poplings/pop-party.png" alt="Poplings Pop Party mode with a score and a timer bar" loading="lazy" width="552" height="1200">
+                <div class="copy">
+                    <span class="tag">Pop Party</span>
+                    <h3>For when they want a challenge</h3>
+                    <p>Older kids usually want something with a bit of a push, so Pop Party is a short timed run with a score. It is the only place in the app where a round can end.</p>
+                    <p>It sits behind its own button and never interrupts calm play, so a younger sibling handed the same phone will not stumble into it.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <img class="shot" src="/assets/poplings/grownups.png" alt="Poplings Grown-Ups screen showing a play time summary and settings tabs" loading="lazy" width="552" height="1200">
+                <div class="copy">
+                    <span class="tag">Grown-Ups</span>
+                    <h3>Behind a simple gate</h3>
+                    <p>Tucked behind a bit of arithmetic a small child cannot do, you get a plain read on how the app is actually being used: time today and this week, typical visit length, and how the time splits between calm play and Pop Party.</p>
+                    <!-- ⚠️ NAME THE REAL CONTROLS. This used to say "choose how busy
+                         the screen gets", which is not a setting that exists: a parent
+                         went looking for a slider and found a three-way difficulty
+                         picker instead. Every control named here must be one a parent
+                         can actually find in the app. -->
+                    <p>You can also set the difficulty for calm Play (Easy, Just right, or Challenge), adjust the volume or switch on a quiet mode, turn vibration and motion down, and set an optional gentle stop after 10 to 30 minutes. None of it is dressed up as a reward, and none of it turns screen time into a streak to keep.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Parent panel -->
+    <div class="parents">
+        <div class="parent-card taped">
+            <h2>For parents, in plain terms</h2>
+            <p class="intro">Here is everything you would otherwise have to dig through a privacy label to find out.</p>
+            <ul class="facts">
+                <li><b>Data collected</b><span>None. There is no analytics SDK, no crash reporter, and no advertising library in the app. Nothing about your child leaves the device, because nothing is gathered in the first place.</span></li>
+                <li><b>Accounts</b><span>None. No sign-in, no email, no name, no age entry.</span></li>
+                <li><b>Ads</b><span>None, of any kind, including cross-promotion of our own apps.</span></li>
+                <li><b>Price</b><span>Free. There are no in-app purchases, no subscription, and nothing locked behind a payment.</span></li>
+                <li><b>Links out</b><span>The child-facing part of the app has no links out to the web or to other apps.</span></li>
+                <li><b>Internet</b><span>Not required and not used during play. The app works in airplane mode.</span></li>
+                <li><b>Saved on device</b><span>Which Poplings have been found, your settings, and play-time totals. All of it stays on the phone and is deleted with the app.</span></li>
+            </ul>
+            <div class="parent-actions">
+                <a class="btn calm" href="/poplings/support/">Parent guide &amp; support</a>
+                <a class="btn" href="/poplings/privacy/">Read the privacy policy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Veteran owned, in the craft idiom -->
+    <div class="vet-bar">
+        <div class="inner">
+            <svg class="flag" viewBox="0 0 26 15" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="26" height="15" fill="#B22234"/>
+                <g fill="#FFFFFF">
+                    <rect y="1.15" width="26" height="1.15"/>
+                    <rect y="3.46" width="26" height="1.15"/>
+                    <rect y="5.77" width="26" height="1.15"/>
+                    <rect y="8.08" width="26" height="1.15"/>
+                    <rect y="10.38" width="26" height="1.15"/>
+                    <rect y="12.69" width="26" height="1.15"/>
+                </g>
+                <rect width="10.4" height="8.08" fill="#3C3B6E"/>
+            </svg>
+            <span>Made by one veteran-owned studio, for our own kids first</span>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         KIDS-SIDE FOOTER. Intentionally no link to the studio's other app or
+         to the studio's shared legal pages: a Made-for-Kids listing points at
+         this page, and everything reachable from here has to be suitable for
+         a child. Keeping this section self-contained also means it can be
+         lifted onto its own domain later without editing anything.
+         ===================================================================== -->
+    <footer class="footer">
+        <p class="f-brand">Poplings</p>
+        <p class="f-links">
+            <a href="/poplings/">Home</a>
+            <span>|</span>
+            <a href="/poplings/support/">For Parents</a>
+            <span>|</span>
+            <a href="/poplings/privacy/">Privacy</a>
+            <span>|</span>
+            <a href="mailto:hello@holdoversoftware.com">Contact</a>
+        </p>
+        <p class="f-copy">&copy; 2026 CM Collective LLC. Poplings is made by Holdover Software, a studio of CM Collective LLC.</p>
+    </footer>
+
+</body>
+</html>

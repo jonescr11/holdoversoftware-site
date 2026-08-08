@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — Holdover</title>
-    <meta name="description" content="Holdover is a precision ballistics calculator developed by CM Collective LLC, a Minnesota limited liability company.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'><circle cx='512' cy='512' r='400' fill='%23E8B84B'/><g stroke='%231a1a1a' fill='none' stroke-linecap='round'><line x1='272' y1='512' x2='752' y2='512' stroke-width='22'/><line x1='512' y1='272' x2='512' y2='512' stroke-width='22'/><line x1='512' y1='512' x2='512' y2='752' stroke-width='22'/><line x1='462' y1='572' x2='562' y2='572' stroke-width='22'/><line x1='442' y1='632' x2='582' y2='632' stroke-width='22'/><line x1='422' y1='692' x2='602' y2='692' stroke-width='22'/></g><circle cx='512' cy='512' r='20' fill='%231a1a1a'/></svg>">
+    <title>About — Holdover Software</title>
+    <meta name="description" content="Holdover Software is an independent app studio and a studio of CM Collective LLC, a Minnesota limited liability company. It makes Holdover Ballistics and Poplings for iOS.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231a1a1a'/><text x='50' y='68' font-family='-apple-system,system-ui,sans-serif' font-size='54' font-weight='800' fill='%23E8B84B' text-anchor='middle'>H</text></svg>">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -45,12 +45,8 @@
             color: inherit;
         }
 
-        .topnav-brand svg {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-        }
-
+        /* Text wordmark, not the reticle: the reticle is the ballistics app's
+           icon, not the studio's mark. */
         .topnav-brand .name {
             font-size: 0.85rem;
             font-weight: 800;
@@ -58,9 +54,14 @@
             color: #ffffff;
         }
 
+        .topnav-brand .name em {
+            font-style: normal;
+            color: #E8B84B;
+        }
+
         .topnav-links {
             display: flex;
-            gap: 28px;
+            gap: 24px;
         }
 
         .topnav-links a {
@@ -71,6 +72,7 @@
             padding: 4px 0;
             border-bottom: 1.5px solid transparent;
             transition: color 0.15s, border-color 0.15s;
+            white-space: nowrap;
         }
 
         .topnav-links a:hover {
@@ -82,19 +84,21 @@
             border-bottom-color: #E8B84B;
         }
 
-        @media (max-width: 560px) {
+        @media (max-width: 700px) {
             .topnav {
                 padding: 12px 16px;
+                flex-wrap: wrap;
+                gap: 8px;
             }
             .topnav-brand .name {
-                font-size: 0.75rem;
-                letter-spacing: 0.18em;
+                font-size: 0.7rem;
+                letter-spacing: 0.14em;
             }
             .topnav-links {
-                gap: 16px;
+                gap: 13px;
             }
             .topnav-links a {
-                font-size: 0.78rem;
+                font-size: 0.76rem;
             }
         }
 
@@ -122,6 +126,14 @@
             margin-top: 36px;
             margin-bottom: 12px;
             color: #E8B84B;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 26px;
+            margin-bottom: 8px;
+            color: #fff;
         }
 
         p {
@@ -173,6 +185,37 @@
             text-decoration: underline;
         }
 
+        /* Each product gets its own bordered block, so the two audiences read
+           as separate things on a shared company page. */
+        .product {
+            margin-top: 20px;
+            padding: 22px 24px;
+            background: #202020;
+            border: 1px solid #2a2a2a;
+            border-left: 3px solid var(--accent, #E8B84B);
+            border-radius: 12px;
+        }
+
+        .product.kids { --accent: #E0553F; }
+
+        .product h3 {
+            margin-top: 0;
+        }
+
+        .product p:last-child {
+            margin-bottom: 0;
+        }
+
+        .product .audience {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: #a0a0a0;
+            margin-bottom: 8px;
+        }
+
         .info-box {
             margin-top: 32px;
             padding: 20px 24px;
@@ -197,6 +240,16 @@
             color: #fff;
         }
 
+        @media (max-width: 480px) {
+            .info-box dl {
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
+            .info-box dd {
+                margin-bottom: 10px;
+            }
+        }
+
         .footer {
             margin-top: 80px;
             padding-top: 24px;
@@ -209,50 +262,70 @@
             font-size: 0.8rem;
             margin-bottom: 6px;
         }
+
+        .footer a {
+            color: #a0a0a0;
+            font-size: 0.85rem;
+        }
+
+        .footer .f-links span {
+            color: #444;
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
 
     <!-- Top Navigation -->
     <nav class="topnav">
-        <a href="index.html" class="topnav-brand" aria-label="Holdover home">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" aria-hidden="true">
-                <circle cx="512" cy="512" r="400" fill="#E8B84B"/>
-                <g stroke="#1a1a1a" fill="none" stroke-linecap="round">
-                    <line x1="272" y1="512" x2="752" y2="512" stroke-width="44"/>
-                    <line x1="512" y1="272" x2="512" y2="752" stroke-width="44"/>
-                </g>
-                <circle cx="512" cy="512" r="40" fill="#1a1a1a"/>
-            </svg>
-            <span class="name">HOLDOVER</span>
+        <a href="index.html" class="topnav-brand" aria-label="Holdover Software home">
+            <span class="name">HOLDOVER<em>SOFTWARE</em></span>
         </a>
         <div class="topnav-links">
-            <a href="index.html">Home</a>
+            <a href="index.html">Studio</a>
+            <a href="ballistics/index.html">Ballistics</a>
+            <a href="poplings/index.html">Poplings</a>
             <a href="about.html" class="active">About</a>
             <a href="contact.html">Contact</a>
-            <a href="terms.html">Terms</a>
-            <a href="privacy.html">Privacy</a>
         </div>
     </nav>
 
     <div class="container">
         <h1>About</h1>
-        <p class="lede">The company behind Holdover.</p>
+        <p class="lede">The studio, and the company behind it.</p>
 
-        <h2>The App</h2>
-        <p><strong>Holdover</strong> is a precision ballistics calculator for iOS — built for sport shooters, hunters, and long-range competitors. It produces sub-MOA drop solutions using G1 and G7 drag models, walks shooters through guided zeroing on a tap-to-place target, and ships with a curated library of factory loads with verified ballistic coefficients. Every calculation runs locally on the device. No cell service required.</p>
+        <h2>The Studio</h2>
+        <p><strong>Holdover Software</strong> is a one-person independent app studio. It builds small, focused apps for iOS: each one does a single job properly, runs its work on the device rather than on a server, keeps whatever it saves local to the phone, and asks nobody to make an account.</p>
+        <p>The studio is named after its first app, and the name stuck as the umbrella when the second one turned out to be for an entirely different audience.</p>
+
+        <h2>The Apps</h2>
+
+        <div class="product">
+            <span class="audience">For sport shooters and hunters</span>
+            <h3>Holdover Ballistics</h3>
+            <p>A precision ballistics calculator for iOS, built for sport shooters, hunters, and long-range competitors. It produces drop solutions using G1 and G7 drag models, walks shooters through guided zeroing on a tap-to-place target, and ships with a curated library of factory loads with verified ballistic coefficients. Every calculation runs locally on the device. No cell service required.</p>
+            <p><a href="ballistics/index.html">More about Holdover Ballistics</a></p>
+        </div>
+
+        <div class="product kids">
+            <span class="audience">For kids ages 3 to 8</span>
+            <h3>Poplings</h3>
+            <p>A calm balloon toy for small children. Balloons drift up, a tap pops them with a cheerful sound, and now and then one has a hand-drawn Popling hiding inside. Three worlds, 37 Poplings, and a Grown-Ups section that gives a parent a plain read on how the app is actually being used. No ads, no accounts, no purchases, and nothing collected.</p>
+            <p><a href="poplings/index.html">More about Poplings</a></p>
+        </div>
 
         <h2>The Company</h2>
-        <p><strong>CM Collective LLC</strong> is a Minnesota limited liability company. CM Collective LLC owns and operates this website (holdoversoftware.com), develops the Holdover app, and is the legal entity responsible for distribution on the App Store.</p>
-
+        <p><strong>CM Collective LLC</strong> is a Minnesota limited liability company. CM Collective LLC owns and operates this website (holdoversoftware.com), develops the apps published under the Holdover Software name, and is the legal entity responsible for their distribution on the App Store.</p>
         <p>CM Collective LLC is an independent software studio founded by Clint Jones, a Marine veteran, hunter, and product manager.</p>
 
         <div class="info-box">
             <dl>
                 <dt>Legal Name</dt>
                 <dd>CM Collective LLC</dd>
-                <dt>Product</dt>
-                <dd>Holdover</dd>
+                <dt>Studio Name</dt>
+                <dd>Holdover Software</dd>
+                <dt>Products</dt>
+                <dd>Holdover Ballistics, Poplings</dd>
                 <dt>State of Formation</dt>
                 <dd>Minnesota</dd>
                 <dt>Address</dt>
@@ -264,20 +337,35 @@
             </dl>
         </div>
 
-        <h2>Principles</h2>
-        <p>Holdover is built around five principles that shape every interaction in the app — from the 60-second first-profile flow to the high-contrast, sunlight-readable drop tables.</p>
+        <h2>How we build</h2>
+        <p>Two apps this far apart do not share a feature list, but they do share a standard. These are the rules that apply either way.</p>
         <ul class="principles">
-            <li><strong>Shoot first, configure later.</strong> Get to a useful drop table in under a minute.</li>
-            <li><strong>Never betray trust.</strong> No crashes, no data loss, no silently wrong numbers.</li>
-            <li><strong>The range is the context.</strong> Big targets, high contrast, sunlight-readable, one-handed.</li>
-            <li><strong>Progressive disclosure.</strong> Casual shooters see simple. Power users unlock advanced.</li>
-            <li><strong>Offline-first.</strong> Everything works without cell service.</li>
+            <li><strong>The work happens on the device.</strong> Solvers, saved data, and settings live on the phone. Nothing needs a signal.</li>
+            <li><strong>Nothing is collected.</strong> No analytics, no tracking, no advertising code in anything we ship. There is no data pipeline behind these apps because we never built one.</li>
+            <li><strong>Never betray trust.</strong> No crashes, no data loss, and no silently wrong numbers.</li>
+            <li><strong>The real setting is the design brief.</strong> A drop table gets read in direct sun, one-handed, with a heartbeat up. A kids app gets used by someone who cannot read yet. Neither gets designed for a demo.</li>
+            <li><strong>Progressive disclosure.</strong> The simple path is the default; depth is there when it is wanted, and never in the way before that.</li>
         </ul>
 
-        <p>For privacy and data-handling details, see the <a href="privacy.html">Privacy Policy</a>. For terms of use, see the <a href="terms.html">Terms of Service</a>. For inquiries, see <a href="contact.html">Contact</a>.</p>
+        <h3>Ballistics-specific principles</h3>
+        <p>Holdover Ballistics adds one more: <strong>shoot first, configure later.</strong> A useful drop table in under a minute, before any of the advanced inputs are touched.</p>
+
+        <h3>Kids-specific principles</h3>
+        <p>Poplings adds two. <strong>Toy, not arcade:</strong> the default mode is calm and endless, with no timer, no score, and no way to lose. And <strong>never gamify screen time:</strong> the parent-facing numbers are there to inform a parent, not to reward more play, so there are no streaks and no rewards for coming back.</p>
+
+        <p>For privacy and data-handling details, see the <a href="privacy.html">Privacy Policy</a>, or the <a href="poplings/privacy/index.html">Poplings privacy policy</a> for that app specifically. For terms of use, see the <a href="terms.html">Terms of Service</a>. For inquiries, see <a href="contact.html">Contact</a>.</p>
 
         <div class="footer">
-            <p>Holdover is a product of CM Collective LLC.</p>
+            <p class="f-links">
+                <a href="ballistics/index.html">Holdover Ballistics</a>
+                <span>|</span>
+                <a href="poplings/index.html">Poplings</a>
+                <span>|</span>
+                <a href="terms.html">Terms</a>
+                <span>|</span>
+                <a href="privacy.html">Privacy</a>
+            </p>
+            <p>Holdover Software is a studio of CM Collective LLC.</p>
             <p>&copy; 2026 CM Collective LLC</p>
         </div>
     </div>

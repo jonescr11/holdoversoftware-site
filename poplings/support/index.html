@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Parents &amp; Support &middot; Poplings</title>
+    <meta name="description" content="Help and contact for Poplings, a calm, ad-free popping toy for ages 3 to 8. Settings, how to lock the app to one screen, and how to reach a real person.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="../../assets/poplings/icon.png">
+    <!--
+      ============================================================================
+      POPLINGS PARENT / SUPPORT PAGE
+
+      App Store Connect requires a Support URL for EVERY app, and it must be a
+      real page that helps someone, not a redirect to a homepage. Reviewers do
+      open it.
+
+      The App Store listing points at https://holdoversoftware.com/poplings/support/
+      so this path is load-bearing. If it moves again, update App Store Connect in
+      the same change.
+
+      Written for the parent, not the child: a preschooler is never going to read
+      this, so every answer is aimed at the adult who installed it and wants to
+      know how to turn the sound down, erase progress, or set a limit.
+      Keep the FAQ answers TRUE to the shipping app: the settings named here are
+      the real ones in the Grown-Ups section, and the collection count here (37)
+      has to match the app and the App Store description.
+
+      ⚠️ The "Keep them in the app" section is load-bearing, not filler. The app
+      deliberately ships WITHOUT an in-app exit lock (design decision #9: an app
+      cannot trap a user, and a fake one is worse than none). That decision is
+      only half-shipped unless the real answer, iOS Guided Access, is
+      documented somewhere a parent can find it. This is that somewhere. Do not
+      delete it without reopening decision #9.
+
+      Firewalled on purpose: this page and everything under /poplings/ links
+      only within itself. See the footer note.
+
+      NOTE ON ASSET PATHS: the icon and woff2 files live under
+      /assets/poplings/, matching the page path. Renamed from the old
+      /assets/balloon-pop/ on 2026-08-07.
+      ============================================================================
+    -->
+    <style>
+        /* Same self-hosted woff2 files the app bundles, so the support page and
+           the app read as one product. Local files, never a CDN request. */
+        @font-face {
+            font-family: 'BP Display';
+            src: url('../../assets/poplings/fonts/baloo2.woff2') format('woff2');
+            font-weight: 400 800;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'BP UI';
+            src: url('../../assets/poplings/fonts/fredoka.woff2') format('woff2');
+            font-weight: 300 700;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'BP Data';
+            src: url('../../assets/poplings/fonts/nunito.woff2') format('woff2');
+            font-weight: 200 1000;
+            font-display: swap;
+        }
+
+        :root {
+            --paper: #FFF8EC;
+            --paper-warm: #F6EBD8;
+            --ink: #3A2E28;
+            --ink-soft: #6B5A50;
+            --red: #E0553F;
+            --orange: #F2A63C;
+            --blue: #6FC4E0;
+            --green: #7DC96F;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            /* Body copy in the DATA face (Nunito): most neutral and legible of
+               the six the app ships, and this is a page to be read closely. */
+            font-family: 'BP Data', system-ui, -apple-system, sans-serif;
+            background-color: var(--paper);
+            background-image:
+                repeating-linear-gradient(90deg, rgba(58,46,40,0.028) 0 1px, transparent 1px 4px),
+                repeating-linear-gradient(0deg, rgba(58,46,40,0.02) 0 1px, transparent 1px 5px);
+            color: var(--ink);
+            line-height: 1.72;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3 { font-family: 'BP Display', system-ui, sans-serif; line-height: 1.2; }
+
+        /* ---- Nav ---- */
+        .topnav {
+            position: sticky; top: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+            padding: 12px 22px;
+            background: rgba(255, 248, 236, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(58, 46, 40, 0.1);
+        }
+
+        .topnav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+
+        .topnav-brand img {
+            width: 32px; height: 32px; border-radius: 8px;
+            border: 2px solid var(--ink); display: block;
+        }
+
+        .topnav-brand .name {
+            font-family: 'BP Display', sans-serif;
+            font-size: 1.05rem; font-weight: 800; color: var(--red);
+        }
+
+        .topnav-links { display: flex; gap: 20px; align-items: center; }
+
+        .topnav-links a {
+            font-family: 'BP UI', sans-serif;
+            color: var(--ink-soft); text-decoration: none;
+            font-size: 0.9rem; font-weight: 600; transition: color 0.15s;
+        }
+
+        .topnav-links a:hover, .topnav-links a.active { color: var(--red); }
+
+        @media (max-width: 620px) {
+            .topnav { padding: 10px 14px; }
+            .topnav-brand .name { font-size: 0.92rem; }
+            .topnav-links { gap: 13px; }
+            .topnav-links a { font-size: 0.8rem; }
+        }
+
+        /* ---- Page ---- */
+        .page { max-width: 740px; margin: 0 auto; padding: 50px 22px 0; }
+
+        .page h1 {
+            font-size: clamp(1.9rem, 6vw, 2.6rem);
+            font-weight: 800; color: var(--red); margin-bottom: 10px;
+        }
+
+        .lede { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 34px; }
+
+        /* Contact card sits ABOVE the FAQ: someone who opened a support page
+           usually wants a human, and making them scroll past ten questions to
+           find an address is its own small insult. */
+        .contact-card {
+            background: #FFFDF6;
+            border: 3px solid var(--ink);
+            border-radius: 18px;
+            padding: 26px 26px 22px;
+            box-shadow: 0 6px 0 rgba(58, 46, 40, 0.14);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .contact-card p { margin-bottom: 8px; }
+
+        .contact-card .email {
+            font-family: 'BP UI', sans-serif;
+            font-size: 1.1rem; font-weight: 700;
+            display: inline-block; margin: 4px 0 0;
+        }
+
+        .contact-card .note {
+            font-size: 0.88rem; color: var(--ink-soft);
+            margin: 12px 0 0;
+        }
+
+        /* Jump list */
+        .jump {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            margin-bottom: 40px; justify-content: center;
+        }
+
+        .jump a {
+            font-family: 'BP UI', sans-serif;
+            font-size: 0.84rem; font-weight: 600;
+            color: var(--ink); text-decoration: none;
+            background: var(--paper-warm);
+            border: 2px solid var(--ink);
+            border-radius: 999px;
+            padding: 4px 14px;
+            box-shadow: 0 3px 0 rgba(58, 46, 40, 0.16);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .jump a:hover { transform: translateY(-1px); box-shadow: 0 4px 0 rgba(58, 46, 40, 0.16); }
+
+        section { margin-bottom: 36px; scroll-margin-top: 76px; }
+
+        section h2 {
+            font-size: 1.32rem;
+            margin-bottom: 12px; padding-bottom: 6px;
+            border-bottom: 2px dashed rgba(58, 46, 40, 0.18);
+        }
+
+        section h3 { font-size: 1.04rem; margin: 20px 0 6px; }
+
+        section p { margin-bottom: 12px; }
+        section p:last-child { margin-bottom: 0; }
+
+        section ul, section ol { margin: 0 0 14px 22px; }
+        section li { margin-bottom: 7px; }
+
+        a { color: var(--red); font-weight: 600; }
+
+        strong { font-weight: 800; }
+
+        /* Settings table */
+        .settings-list { list-style: none; margin: 0 0 14px; padding: 0; }
+
+        .settings-list li {
+            display: flex; gap: 12px; align-items: flex-start;
+            padding: 12px 0;
+            border-top: 2px dashed rgba(58, 46, 40, 0.16);
+            font-size: 0.96rem;
+        }
+
+        .settings-list li:last-child { border-bottom: 2px dashed rgba(58, 46, 40, 0.16); }
+
+        .settings-list li b {
+            font-family: 'BP Display', sans-serif;
+            flex: 0 0 138px; font-weight: 700; color: var(--ink);
+        }
+
+        .settings-list li span { flex: 1 1 auto; color: var(--ink-soft); }
+
+        @media (max-width: 520px) {
+            .settings-list li { flex-direction: column; gap: 2px; }
+            .settings-list li b { flex: none; }
+        }
+
+        /* The Guided Access callout: the most useful thing on this page for a
+           parent handing a phone to a small child. */
+        .callout {
+            background: var(--paper-warm);
+            border: 3px solid var(--ink);
+            border-radius: 18px;
+            padding: 24px 26px 22px;
+            box-shadow: 0 6px 0 rgba(58, 46, 40, 0.14);
+        }
+
+        .callout h3 { margin-top: 0; }
+
+        .callout ol { margin: 10px 0 14px 22px; }
+
+        .callout p:last-child { margin-bottom: 0; }
+
+        .why {
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            border-left: 4px solid var(--orange);
+            padding-left: 14px;
+            margin: 14px 0 0;
+        }
+
+        /* ---- Footer ---- */
+        .footer {
+            margin-top: 60px; padding: 32px 22px 42px;
+            text-align: center;
+            border-top: 2px solid rgba(58, 46, 40, 0.12);
+        }
+
+        .footer .f-brand {
+            font-family: 'BP Display', sans-serif;
+            font-weight: 700; color: var(--red); margin-bottom: 10px;
+        }
+
+        .footer .f-links a {
+            font-family: 'BP UI', sans-serif;
+            color: var(--ink-soft); text-decoration: none;
+            font-size: 0.88rem; font-weight: 600;
+        }
+
+        .footer .f-links a:hover { color: var(--red); }
+        .footer .f-links span { color: rgba(58, 46, 40, 0.28); margin: 0 10px; }
+
+        .footer .f-copy {
+            font-size: 0.8rem; color: var(--ink-soft);
+            opacity: 0.8; margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- The "Home" links point at /poplings/, the landing page. Root-relative on
+         purpose. Keep them pointing at a page that actually exists: a nav item
+         that 404s on a page Apple's reviewers open is worse than one fewer link. -->
+    <nav class="topnav">
+        <a href="/poplings/" class="topnav-brand" aria-label="Poplings home">
+            <img src="../../assets/poplings/icon.png" alt="" width="32" height="32">
+            <span class="name">Poplings</span>
+        </a>
+        <div class="topnav-links">
+            <a href="/poplings/">Home</a>
+            <a href="index.html" class="active">For Parents</a>
+            <a href="../privacy/index.html">Privacy</a>
+        </div>
+    </nav>
+
+    <main class="page">
+        <h1>For Parents</h1>
+        <p class="lede">Poplings is a calm, ad-free balloon toy for ages 3 to 8. Balloons float up, a tap pops them, and hiding inside some of them are little creatures called Poplings. Everything below is written for the grown-up.</p>
+
+        <div class="contact-card">
+            <p>Something not working, or an idea for the next update?</p>
+            <a href="mailto:hello@holdoversoftware.com" class="email">hello@holdoversoftware.com</a>
+            <p class="note">A real person reads every message. Please include your device (for example &ldquo;iPhone 15&rdquo;) and what happened.</p>
+        </div>
+
+        <nav class="jump" aria-label="Jump to a section">
+            <a href="#poplings">What is a Popling?</a>
+            <a href="#settings">Settings</a>
+            <a href="#lock">Keep them in the app</a>
+            <a href="#losing">Can they lose?</a>
+            <a href="#sound">Sound</a>
+            <a href="#privacy">What it collects</a>
+            <a href="#progress">Saved progress</a>
+            <a href="#devices">Devices</a>
+        </nav>
+
+        <section id="poplings">
+            <h2>What is a Popling?</h2>
+            <p>Now and then a balloon has a little creature tucked inside it. Those are the Poplings, and finding one is the small surprise the whole app is built around. Each has a name, its own sound, and a spot in <strong>My Poplings</strong>, where the empty spaces stay visible so a child can see how many are still out there.</p>
+            <p>There are <strong>37</strong> to find in all, and every one of them comes with the app. Nothing is locked, nothing arrives later, and nothing is behind a purchase.</p>
+        </section>
+
+        <section id="settings">
+            <h2>Where are the settings?</h2>
+            <p>Tap <strong>Grown-Ups</strong> at the bottom of the home screen. It asks a simple addition question first, so a young child cannot get in on their own. Inside there are three tabs, one for each question a parent usually has.</p>
+
+            <!-- ⚠️ THESE HEADINGS MUST MATCH THE APP'S THREE TABS EXACTLY.
+                 This said "three tabs" and then listed seven ungrouped bullets, so a
+                 parent counting three and seeing seven had no idea where anything
+                 lived. The app's tabs are Activity / Settings / About; keep these in
+                 that order and under those names. If a tab is ever added or renamed
+                 in the app, change it here in the same edit. -->
+            <h3>Activity &mdash; is this healthy?</h3>
+            <ul class="settings-list">
+                <li><b>Play time</b><span>How long the app has been used today and this week, how long a typical visit runs, the longest one, and how the time splits between calm play and Pop Party. It is a plain read on usage, not a score to beat, and there are no streaks or rewards for playing more.</span></li>
+                <li><b>Poplings found</b><span>How many of the 37 your child has collected so far.</span></li>
+            </ul>
+
+            <h3>Settings &mdash; can I control it?</h3>
+            <ul class="settings-list">
+                <li><b>How hard is it</b><span>Easy, Just right, or Challenge, for the calm <strong>Play</strong> mode. Easy makes the balloons bigger, slower, and fewer, for a child still learning to point at a screen. It deliberately does not change Pop Party, so scores stay comparable.</span></li>
+                <li><b>Sound</b><span>A volume level, plus a <strong>quiet mode</strong> that softens the popping while keeping the little celebration sounds audible. Your device's volume buttons work too.</span></li>
+                <li><b>Vibration</b><span>Haptics on or off.</span></li>
+                <li><b>Reduce motion</b><span>Calms the movement on screen, for children who find a busy screen overwhelming. If you have turned on Reduce Motion in iOS Settings, Poplings follows that automatically.</span></li>
+                <li><b>A gentle stop</b><span>An optional limit of 10, 15, 20, or 30 minutes. When the time is up the balloons drift away and a calm card appears, rather than cutting off mid-tap. It is a nudge for the adult, not a lockout for the child: tapping OK returns home and the app can be played again.</span></li>
+            </ul>
+
+            <h3>About &mdash; can I trust it?</h3>
+            <ul class="settings-list">
+                <li><b>How this app works</b><span>The plain statement that there are no ads, no in-app purchases, and no data collection, and that nothing leaves the device.</span></li>
+                <li><b>Erase all data</b><span>Clears found Poplings, scores, settings, and play-time history from this device.</span></li>
+            </ul>
+        </section>
+
+        <section id="lock">
+            <h2>Keeping a small child inside the app</h2>
+            <div class="callout">
+                <h3>Use Guided Access, not an in-app lock</h3>
+                <p>Poplings has no exit lock of its own, on purpose. iOS has a proper one built in, it cannot be tapped out of by accident, and it works in every app rather than just this one.</p>
+                <p><strong>To turn it on, once:</strong></p>
+                <ol>
+                    <li>Open <strong>Settings</strong> &rarr; <strong>Accessibility</strong> &rarr; <strong>Guided Access</strong> and switch it on.</li>
+                    <li>Tap <strong>Passcode Settings</strong> and set a passcode. Choose something your child will not watch you type.</li>
+                </ol>
+                <p><strong>Then, each time you hand over the phone:</strong></p>
+                <ol>
+                    <li>Open Poplings.</li>
+                    <li>Triple-click the side button (or the Home button on older devices).</li>
+                    <li>Tap <strong>Start</strong>. The phone is now locked to this one app.</li>
+                    <li>To get out, triple-click again and enter your passcode.</li>
+                </ol>
+                <p>On Android tablets the equivalent feature is called Screen Pinning, under Settings &rarr; Security.</p>
+                <p class="why">Why we did not build our own: an app that will not let you leave is a trap, and a lock a four-year-old can defeat by mashing the screen is worse than no lock at all because you would stop watching. The operating system's version is the honest answer.</p>
+            </div>
+        </section>
+
+        <section id="losing">
+            <h2>My child got frustrated. Can they lose?</h2>
+            <p>Not in the calm Play mode. Nothing to fail, no timer, no score. Balloons that are not popped simply drift away, and the app never tells a child they did something wrong. If the pace feels too quick, set Difficulty to <strong>easy</strong> in the Grown-Ups section.</p>
+            <p>There is one exception, behind its own button: <strong>Pop Party</strong> is a short timed run with a score, for older kids who want a challenge. It is the only place in the app where a round can end. It never starts on its own and never interrupts calm play, so a younger child handed the same phone will not fall into it.</p>
+        </section>
+
+        <section id="sound">
+            <h2>The game is too loud, or too quiet</h2>
+            <p>The app plays at full scale by default so your device's volume buttons are the real control, which is the slider you already know and the one that appears on screen when you press it. If you want the popping softer but still want to hear the little celebrations, turn on <strong>quiet mode</strong> in the Grown-Ups section.</p>
+        </section>
+
+        <section id="privacy">
+            <h2>What information does it collect?</h2>
+            <p>None at all. No accounts, no ads, no analytics, no tracking, and no internet connection used during play. Which Poplings have been found, plus scores and settings, are saved only on your device and are never sent anywhere. The full details are in the <a href="../privacy/index.html">privacy policy</a>.</p>
+            <p>There are no in-app purchases and no subscriptions, so there is nothing a child can buy by tapping.</p>
+        </section>
+
+        <section id="progress">
+            <h2>The Poplings we found are gone</h2>
+            <p>Saved progress lives on the device rather than in an account, which is the trade we made for collecting nothing: a filled-in collection does not follow your child to a new iPhone or iPad, and deleting the app removes it. If the book emptied out on the same device without the app being deleted or erased, please email us with the device model and roughly when it happened.</p>
+            <p>Progress can also be cleared deliberately, from <strong>Erase progress</strong> in the Grown-Ups section. That is not reversible.</p>
+        </section>
+
+        <section id="devices">
+            <h2>Which devices does it run on?</h2>
+            <p>Poplings runs on iPhone and iPad, in portrait orientation only. The whole scene, the menu, and the way the balloons float are all designed tall, so landscape would letterbox everything.</p>
+            <!-- ⚠️ NO REFUND SECTION HERE, deliberately. There was one, explaining
+                 Apple's reportaproblem.apple.com process. Poplings is free and has
+                 no in-app purchases, so there is nothing to refund, and the only
+                 thing that section accomplished was to plant the idea that money is
+                 involved somewhere, on the one page whose entire job is the
+                 opposite. If a paid product ever ships, put it on that page. -->
+            <h3>Does it work without internet?</h3>
+            <p>Yes, completely. Poplings never connects to the internet, so it behaves exactly the same in airplane mode, on a plane, in a car with no signal, or on an iPad that has never been on a network. Nothing to load, nothing to wait for.</p>
+        </section>
+    </main>
+
+    <!-- =====================================================================
+         KIDS-SIDE FOOTER. Intentionally no link to the studio's other app or
+         to the studio's shared legal pages: a Made-for-Kids listing points at
+         these pages, and everything reachable from here has to be suitable for
+         a child. Keeping this self-contained also means /poplings/ can be
+         lifted onto its own domain later without editing anything.
+         ===================================================================== -->
+    <footer class="footer">
+        <p class="f-brand">Poplings</p>
+        <p class="f-links">
+            <a href="/poplings/">Home</a>
+            <span>|</span>
+            <a href="index.html">For Parents</a>
+            <span>|</span>
+            <a href="../privacy/index.html">Privacy</a>
+            <span>|</span>
+            <a href="mailto:hello@holdoversoftware.com">Contact</a>
+        </p>
+        <p class="f-copy">&copy; 2026 CM Collective LLC. Poplings is made by Holdover Software, a studio of CM Collective LLC.</p>
+    </footer>
+
+</body>
+</html>

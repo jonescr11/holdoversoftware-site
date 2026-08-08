@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact — Holdover</title>
-    <meta name="description" content="Get in touch with CM Collective LLC, the company behind Holdover.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'><circle cx='512' cy='512' r='400' fill='%23E8B84B'/><g stroke='%231a1a1a' fill='none' stroke-linecap='round'><line x1='272' y1='512' x2='752' y2='512' stroke-width='22'/><line x1='512' y1='272' x2='512' y2='512' stroke-width='22'/><line x1='512' y1='512' x2='512' y2='752' stroke-width='22'/><line x1='462' y1='572' x2='562' y2='572' stroke-width='22'/><line x1='442' y1='632' x2='582' y2='632' stroke-width='22'/><line x1='422' y1='692' x2='602' y2='692' stroke-width='22'/></g><circle cx='512' cy='512' r='20' fill='%231a1a1a'/></svg>">
+    <title>Contact — Holdover Software</title>
+    <meta name="description" content="Get in touch with Holdover Software and CM Collective LLC, the company behind Holdover Ballistics and Poplings.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231a1a1a'/><text x='50' y='68' font-family='-apple-system,system-ui,sans-serif' font-size='54' font-weight='800' fill='%23E8B84B' text-anchor='middle'>H</text></svg>">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -45,17 +45,16 @@
             color: inherit;
         }
 
-        .topnav-brand svg {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-        }
-
         .topnav-brand .name {
             font-size: 0.85rem;
             font-weight: 800;
             letter-spacing: 0.22em;
             color: #ffffff;
+        }
+
+        .topnav-brand .name em {
+            font-style: normal;
+            color: #E8B84B;
         }
 
         .topnav-links {
@@ -82,19 +81,21 @@
             border-bottom-color: #E8B84B;
         }
 
-        @media (max-width: 560px) {
+        @media (max-width: 700px) {
             .topnav {
                 padding: 12px 16px;
+                flex-wrap: wrap;
+                gap: 8px;
             }
             .topnav-brand .name {
-                font-size: 0.75rem;
-                letter-spacing: 0.18em;
+                font-size: 0.7rem;
+                letter-spacing: 0.14em;
             }
             .topnav-links {
-                gap: 16px;
+                gap: 13px;
             }
             .topnav-links a {
-                font-size: 0.78rem;
+                font-size: 0.76rem;
             }
         }
 
@@ -183,43 +184,57 @@
             font-size: 0.8rem;
             margin-bottom: 6px;
         }
+
+        .footer a {
+            color: #a0a0a0;
+            font-size: 0.85rem;
+        }
+
+        .footer .f-links span {
+            color: #444;
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
 
     <!-- Top Navigation -->
     <nav class="topnav">
-        <a href="index.html" class="topnav-brand" aria-label="Holdover home">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" aria-hidden="true">
-                <circle cx="512" cy="512" r="400" fill="#E8B84B"/>
-                <g stroke="#1a1a1a" fill="none" stroke-linecap="round">
-                    <line x1="272" y1="512" x2="752" y2="512" stroke-width="44"/>
-                    <line x1="512" y1="272" x2="512" y2="752" stroke-width="44"/>
-                </g>
-                <circle cx="512" cy="512" r="40" fill="#1a1a1a"/>
-            </svg>
-            <span class="name">HOLDOVER</span>
+        <a href="index.html" class="topnav-brand" aria-label="Holdover Software home">
+            <span class="name">HOLDOVER<em>SOFTWARE</em></span>
         </a>
         <div class="topnav-links">
-            <a href="index.html">Home</a>
+            <a href="index.html">Studio</a>
+            <a href="ballistics/index.html">Ballistics</a>
+            <a href="poplings/index.html">Poplings</a>
             <a href="about.html">About</a>
             <a href="contact.html" class="active">Contact</a>
-            <a href="terms.html">Terms</a>
-            <a href="privacy.html">Privacy</a>
         </div>
     </nav>
 
     <div class="container">
         <h1>Contact</h1>
-        <p class="lede">Reach the team behind Holdover.</p>
+        <p class="lede">One inbox, one person reading it.</p>
 
-        <p>Holdover is built and operated by <strong>CM Collective LLC</strong>, a Minnesota limited liability company. holdoversoftware.com is owned and operated by CM Collective LLC.</p>
+        <p>The apps published under the <strong>Holdover Software</strong> name are built and operated by <strong>CM Collective LLC</strong>, a Minnesota limited liability company. holdoversoftware.com is owned and operated by CM Collective LLC.</p>
 
         <h2>Email</h2>
         <div class="contact-card">
             <h3>All Inquiries</h3>
             <p class="value"><a href="mailto:hello@holdoversoftware.com">hello@holdoversoftware.com</a></p>
-            <p class="sub">Product questions, feedback, privacy requests, press, and partnerships. We read every message.</p>
+            <p class="sub">Product questions, feedback, privacy requests, press, and partnerships, for any of our apps. We read every message. Mentioning which app you mean gets you a faster answer.</p>
+        </div>
+
+        <h2>Per-app support</h2>
+        <div class="contact-card">
+            <h3>Holdover Ballistics</h3>
+            <p class="value"><a href="ballistics/index.html">holdoversoftware.com/ballistics</a></p>
+            <p class="sub">Features, the beta, and what the solver does. Email the address above for support.</p>
+        </div>
+        <div class="contact-card">
+            <h3>Poplings</h3>
+            <p class="value"><a href="poplings/support/index.html">Parent guide &amp; support</a></p>
+            <p class="sub">Written for parents: settings, how to lock a device to one app, and what the app does and does not collect.</p>
         </div>
 
         <h2>Mailing Address</h2>
@@ -229,7 +244,16 @@
         </div>
 
         <div class="footer">
-            <p>Holdover is a product of CM Collective LLC.</p>
+            <p class="f-links">
+                <a href="ballistics/index.html">Holdover Ballistics</a>
+                <span>|</span>
+                <a href="poplings/index.html">Poplings</a>
+                <span>|</span>
+                <a href="terms.html">Terms</a>
+                <span>|</span>
+                <a href="privacy.html">Privacy</a>
+            </p>
+            <p>Holdover Software is a studio of CM Collective LLC.</p>
             <p>&copy; 2026 CM Collective LLC</p>
         </div>
     </div>

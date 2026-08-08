@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &middot; Poplings</title>
+    <meta name="description" content="Privacy policy for Poplings, a kids' app from Holdover Software. No ads, no accounts, no data collection, no internet connection.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="../../assets/poplings/icon.png">
+    <!--
+      ============================================================================
+      POPLINGS PRIVACY POLICY
+
+      This page is a HARD REQUIREMENT, not a nicety: Apple's Kids Category will
+      not approve an app without a privacy policy at a live URL, and it must be
+      reachable WITHOUT an account or a paywall. It is linked from inside the app
+      only behind the parental gate.
+
+      The App Store listing points at https://holdoversoftware.com/poplings/privacy/
+      so this path is load-bearing. If it moves again, update App Store Connect
+      and the in-app Grown-Ups link in the same change.
+
+      Deliberately in the APP's craft-table identity, not the studio's dark
+      ballistics theme. A parent tapping "Privacy" in a preschooler's popping
+      game should not land on a dark tactical page: same company, very
+      different audience. This page also links only within /poplings/; see
+      the footer note.
+
+      ⚠️ EVERY CLAIM HERE MUST STAY TRUE IN THE SHIPPING BUILD. This page and
+      ios/App/App/PrivacyInfo.xcprivacy have to agree with each other and with
+      the App Store privacy questionnaire ("Data Not Collected"). Three copies of
+      the same promise means three things to update if a dependency is ever added,
+      and an out-of-date privacy policy for a KIDS app is a serious problem, not a
+      typo. If you add an SDK, a network call, or analytics, fix this page FIRST.
+
+      NOTE ON ASSET PATHS: the icon and woff2 files live under /assets/poplings/,
+      matching the page path. Renamed from the old /assets/balloon-pop/ on
+      2026-08-07, and that folder is gone, so any reference to it is a bug.
+      ============================================================================
+    -->
+    <style>
+        /* Same self-hosted woff2 files the app bundles. Local, never a CDN
+           request: a font fetched from a third party would put a visitor's IP
+           in someone else's log, on the very page that promises otherwise. */
+        @font-face {
+            font-family: 'BP Display';
+            src: url('../../assets/poplings/fonts/baloo2.woff2') format('woff2');
+            font-weight: 400 800;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'BP UI';
+            src: url('../../assets/poplings/fonts/fredoka.woff2') format('woff2');
+            font-weight: 300 700;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'BP Data';
+            src: url('../../assets/poplings/fonts/nunito.woff2') format('woff2');
+            font-weight: 200 1000;
+            font-display: swap;
+        }
+
+        :root {
+            --paper: #FFF8EC;
+            --paper-warm: #F6EBD8;
+            --ink: #3A2E28;
+            --ink-soft: #6B5A50;
+            --red: #E0553F;
+            --orange: #F2A63C;
+            --green: #7DC96F;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            /* Body copy in the DATA face (Nunito): most neutral and legible of
+               the six the app ships, and this is a document to be read closely. */
+            font-family: 'BP Data', system-ui, -apple-system, sans-serif;
+            background-color: var(--paper);
+            background-image:
+                repeating-linear-gradient(90deg, rgba(58,46,40,0.028) 0 1px, transparent 1px 4px),
+                repeating-linear-gradient(0deg, rgba(58,46,40,0.02) 0 1px, transparent 1px 5px);
+            color: var(--ink);
+            line-height: 1.72;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3 { font-family: 'BP Display', system-ui, sans-serif; line-height: 1.2; }
+
+        /* ---- Nav ---- */
+        .topnav {
+            position: sticky; top: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+            padding: 12px 22px;
+            background: rgba(255, 248, 236, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(58, 46, 40, 0.1);
+        }
+
+        .topnav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+
+        .topnav-brand img {
+            width: 32px; height: 32px; border-radius: 8px;
+            border: 2px solid var(--ink); display: block;
+        }
+
+        .topnav-brand .name {
+            font-family: 'BP Display', sans-serif;
+            font-size: 1.05rem; font-weight: 800; color: var(--red);
+        }
+
+        .topnav-links { display: flex; gap: 20px; align-items: center; }
+
+        .topnav-links a {
+            font-family: 'BP UI', sans-serif;
+            color: var(--ink-soft); text-decoration: none;
+            font-size: 0.9rem; font-weight: 600; transition: color 0.15s;
+        }
+
+        .topnav-links a:hover, .topnav-links a.active { color: var(--red); }
+
+        @media (max-width: 620px) {
+            .topnav { padding: 10px 14px; }
+            .topnav-brand .name { font-size: 0.92rem; }
+            .topnav-links { gap: 13px; }
+            .topnav-links a { font-size: 0.8rem; }
+        }
+
+        /* ---- Page ---- */
+        .page { max-width: 740px; margin: 0 auto; padding: 50px 22px 0; }
+
+        .page h1 {
+            font-size: clamp(1.9rem, 6vw, 2.6rem);
+            font-weight: 800; color: var(--red); margin-bottom: 8px;
+        }
+
+        .dates { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 30px; }
+
+        /* The summary box. A parent deciding whether to install this for a
+           4-year-old should get the whole answer before any legal prose. */
+        .summary {
+            background: #FFFDF6;
+            border: 3px solid var(--ink);
+            border-radius: 18px;
+            padding: 26px 26px 22px;
+            box-shadow: 0 6px 0 rgba(58, 46, 40, 0.14);
+            margin-bottom: 40px;
+        }
+
+        .summary h2 { font-size: 1.16rem; margin-bottom: 10px; }
+
+        .summary > p { font-size: 1.02rem; margin-bottom: 14px; }
+
+        .summary ul { list-style: none; margin: 0; padding: 0; }
+
+        .summary li {
+            display: flex; gap: 10px; align-items: flex-start;
+            font-size: 0.96rem; padding: 4px 0;
+        }
+
+        .summary li svg { flex: 0 0 20px; width: 20px; height: 20px; margin-top: 5px; }
+
+        section { margin-bottom: 34px; }
+
+        section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 11px; padding-bottom: 6px;
+            border-bottom: 2px dashed rgba(58, 46, 40, 0.18);
+        }
+
+        section h3 { font-size: 1.04rem; margin: 20px 0 6px; }
+
+        section p { margin-bottom: 12px; }
+        section p:last-child { margin-bottom: 0; }
+
+        section ul { margin: 0 0 14px 22px; }
+        section li { margin-bottom: 6px; }
+
+        a { color: var(--red); font-weight: 600; }
+
+        strong { font-weight: 800; }
+
+        .contact-box {
+            background: var(--paper-warm);
+            border: 3px solid var(--ink);
+            border-radius: 16px;
+            padding: 22px 24px;
+            box-shadow: 0 5px 0 rgba(58, 46, 40, 0.14);
+        }
+
+        .contact-box p { margin-bottom: 5px; }
+        .contact-box p:last-child { margin-bottom: 0; }
+
+        /* ---- Footer ---- */
+        .footer {
+            margin-top: 60px; padding: 32px 22px 42px;
+            text-align: center;
+            border-top: 2px solid rgba(58, 46, 40, 0.12);
+        }
+
+        .footer .f-brand {
+            font-family: 'BP Display', sans-serif;
+            font-weight: 700; color: var(--red); margin-bottom: 10px;
+        }
+
+        .footer .f-links a {
+            font-family: 'BP UI', sans-serif;
+            color: var(--ink-soft); text-decoration: none;
+            font-size: 0.88rem; font-weight: 600;
+        }
+
+        .footer .f-links a:hover { color: var(--red); }
+        .footer .f-links span { color: rgba(58, 46, 40, 0.28); margin: 0 10px; }
+
+        .footer .f-copy {
+            font-size: 0.8rem; color: var(--ink-soft);
+            opacity: 0.8; margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- The "Home" links point at /poplings/, the landing page. Root-relative on
+         purpose. Keep them pointing at a page that actually exists: a nav item
+         that 404s on a page Apple's reviewers open is worse than one fewer link. -->
+    <nav class="topnav">
+        <a href="/poplings/" class="topnav-brand" aria-label="Poplings home">
+            <img src="../../assets/poplings/icon.png" alt="" width="32" height="32">
+            <span class="name">Poplings</span>
+        </a>
+        <div class="topnav-links">
+            <a href="/poplings/">Home</a>
+            <a href="../support/index.html">For Parents</a>
+            <a href="index.html" class="active">Privacy</a>
+        </div>
+    </nav>
+
+    <main class="page">
+        <h1>Privacy Policy</h1>
+        <p class="dates">For the iOS app <strong>Poplings</strong> &middot; Effective August 2026 &middot; Last updated August 6, 2026</p>
+
+        <div class="summary">
+            <h2>The short version</h2>
+            <p><strong>Poplings collects no data about you or your child. None at all.</strong> Nothing your child does in the app ever leaves the device, because the app has no ability to send anything anywhere.</p>
+            <ul>
+                <li>
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="#7DC96F" stroke="#3A2E28" stroke-width="1.6"/><path d="M6 10.5l2.8 2.8L14 7.6" stroke="#3A2E28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No names, email, age, photos, location, or device identifiers</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="#7DC96F" stroke="#3A2E28" stroke-width="1.6"/><path d="M6 10.5l2.8 2.8L14 7.6" stroke="#3A2E28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No advertising and no third-party analytics code of any kind</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="#7DC96F" stroke="#3A2E28" stroke-width="1.6"/><path d="M6 10.5l2.8 2.8L14 7.6" stroke="#3A2E28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No accounts and nothing to sign up for</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="#7DC96F" stroke="#3A2E28" stroke-width="1.6"/><path d="M6 10.5l2.8 2.8L14 7.6" stroke="#3A2E28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No in-app purchases and no subscriptions</span>
+                </li>
+                <li>
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.6" fill="#7DC96F" stroke="#3A2E28" stroke-width="1.6"/><path d="M6 10.5l2.8 2.8L14 7.6" stroke="#3A2E28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Never connects to the internet. It works the same in airplane mode.</span>
+                </li>
+            </ul>
+        </div>
+
+        <section>
+            <h2>Who we are</h2>
+            <p><strong>Poplings</strong> is made by Holdover Software, a studio of CM Collective LLC, a Minnesota limited liability company, which also owns and operates holdoversoftware.com.</p>
+            <p>This policy covers the Poplings iOS app and the Poplings pages on this website. It is written for parents, teachers, and anyone else deciding whether this app belongs on a child's device.</p>
+        </section>
+
+        <section>
+            <h2>Information we collect</h2>
+            <p>None. Poplings does not ask for, collect, store off-device, or transmit any personal information. To be specific rather than vague, the app collects none of the following:</p>
+            <ul>
+                <li>Names, nicknames, birthdays, ages, or gender</li>
+                <li>Email addresses, phone numbers, or postal addresses</li>
+                <li>Photographs, video, or audio recordings</li>
+                <li>Contacts, calendars, photo libraries, or files</li>
+                <li>Location of any kind, precise or approximate</li>
+                <li>Device identifiers, advertising identifiers, or the IDFA</li>
+                <li>IP addresses</li>
+                <li>Usage analytics, event logs, or session recordings</li>
+                <li>Crash reports or diagnostic telemetry</li>
+                <li>Any biometric, health, financial, or payment information</li>
+            </ul>
+            <p>The app does not request access to the camera, microphone, photo library, contacts, notifications, or location, and it cannot reach them: it ships without the permission entries iOS requires for those features, so the operating system itself blocks them.</p>
+        </section>
+
+        <section>
+            <h2>What is saved on your device</h2>
+            <p>So a child can pick up where they left off, the app saves a small amount of information in its own private storage on the device. This information stays on that one device. It is not transmitted anywhere, it is not shared with us, and we never see it.</p>
+            <p>What is saved:</p>
+            <ul>
+                <li>Which Poplings have been found</li>
+                <li>Your settings: sound, volume, quiet mode, haptics, reduced motion, chosen world, Free Play difficulty, and any session time limit you set</li>
+                <li>Pop Party best scores, for this device only. There is no online leaderboard and no ranking against other players.</li>
+                <li>Play-time totals for the Grown-Ups screen: minutes per day, number of visits, longest visit, and the split between calm play and Pop Party. Day-by-day history older than roughly two months is discarded automatically.</li>
+            </ul>
+            <p>None of it is tied to a person. There is nothing in it that identifies who was playing.</p>
+            <h3>How to erase it</h3>
+            <p>Two ways. Inside the app, open <strong>Grown-Ups</strong> and use <strong>Erase progress</strong>. Or delete the app, which removes all of it permanently. Because none of it was ever sent anywhere, erasing it on the device erases it everywhere.</p>
+        </section>
+
+        <section>
+            <h2>No advertising, no analytics, no tracking</h2>
+            <p>Poplings contains no advertising, no advertising identifiers, no analytics or crash-reporting services, no attribution or install-tracking services, no social media integrations, and no third-party software development kits that report usage. We do not track your child across apps or websites, and we do not build profiles.</p>
+            <p>There is no cross-promotion of our other apps to children anywhere in the app.</p>
+        </section>
+
+        <section>
+            <h2>No internet connection</h2>
+            <p>Poplings is fully offline. All of the artwork, sounds, and fonts are bundled inside the app, so it makes no network requests during play, contacts no servers, and loads no content from the web. That last part is deliberate: a font or image fetched from an outside server at launch would put your device's IP address in a third party's log every time your child opened the app.</p>
+            <p>There is nothing in the app that can send information out.</p>
+        </section>
+
+        <section>
+            <h2>Children's privacy (COPPA)</h2>
+            <p>Poplings is designed for young children, so we built it so that there is nothing to protect: because the app collects no personal information whatsoever, there is no personal information from a child under 13 for us to use, store, share, or disclose. We do not knowingly collect personal information from children of any age, and we do not condition play on providing any information.</p>
+            <p>Because we collect nothing, there is no verifiable parental consent for us to obtain under the Children's Online Privacy Protection Act, no child's data for us to disclose to anyone, and no child's data for a parent to request, correct, or delete from us. We hold no records about your child at all. The same follows under the UK Age Appropriate Design Code, the EU GDPR including Article 8, and the children's provisions of laws such as the California Consumer Privacy Act.</p>
+            <p>The app contains no behavioral advertising, no way for a child to communicate with anyone, and no links out to the web or to social media from anywhere a child can reach. The only links anywhere in the app sit inside the <strong>Grown-Ups</strong> area, which is reached by answering an arithmetic question intended to be beyond a small child.</p>
+            <p>If you believe any of this is not accurate, please write to us at the address below and we will investigate and respond.</p>
+        </section>
+
+        <section>
+            <h2>Purchases</h2>
+            <p>Poplings has no in-app purchases, no subscriptions, and no currency or loot mechanics. There is nothing a child can buy in the app. Downloading it, and anything Apple does around that transaction, is handled by Apple under Apple's own privacy policy rather than ours. Apple may make aggregate, anonymised figures available to us as the developer, such as total downloads by country. We receive no information about individual users or devices, and we could not identify a user from what we do receive.</p>
+        </section>
+
+        <section>
+            <h2>Sharing and disclosure</h2>
+            <p>We do not sell, rent, trade, or transfer information about you or your child, because we do not have any. We have no data to hand over to advertisers, data brokers, or anyone else, and no data-sharing arrangements to disclose.</p>
+        </section>
+
+        <section>
+            <h2>These web pages</h2>
+            <p>The Poplings pages on holdoversoftware.com carry no advertising, no analytics, no tracking pixels, and no cookies of our own. The site is hosted by Cloudflare Pages, which, like any web host, processes standard technical request information such as an IP address in order to serve the page and protect the site from abuse. We do not use that to build profiles of visitors.</p>
+            <p>If you email us, we hold your message and address for as long as it takes to answer you and keep a record of the exchange. We use it only to reply, we do not add you to a mailing list unless you ask, and we do not pass it on.</p>
+        </section>
+
+        <section>
+            <h2>Changes to this policy</h2>
+            <p>If a future version of the app ever changes how it handles information, we will update this page and its date before that version is released. If a change were ever to involve collecting data of any kind, we would say so here plainly and prominently, and we would not apply it retroactively to anything already on your device.</p>
+        </section>
+
+        <section>
+            <h2>Contact us</h2>
+            <div class="contact-box">
+                <p><strong>CM Collective LLC</strong> (Holdover Software)</p>
+                <p>193 Ridgeview Dr, Wayzata, MN 55391, United States</p>
+                <p>Email: <a href="mailto:hello@holdoversoftware.com">hello@holdoversoftware.com</a></p>
+                <p>A real person answers. We aim to reply to privacy questions within five business days.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================================================
+         KIDS-SIDE FOOTER. Intentionally no link to the studio's other app or
+         to the studio's shared legal pages: a Made-for-Kids listing points at
+         these pages, and everything reachable from here has to be suitable for
+         a child. Keeping this self-contained also means /poplings/ can be
+         lifted onto its own domain later without editing anything.
+         ===================================================================== -->
+    <footer class="footer">
+        <p class="f-brand">Poplings</p>
+        <p class="f-links">
+            <a href="/poplings/">Home</a>
+            <span>|</span>
+            <a href="../support/index.html">For Parents</a>
+            <span>|</span>
+            <a href="index.html">Privacy</a>
+            <span>|</span>
+            <a href="mailto:hello@holdoversoftware.com">Contact</a>
+        </p>
+        <p class="f-copy">&copy; 2026 CM Collective LLC. Poplings is made by Holdover Software, a studio of CM Collective LLC.</p>
+    </footer>
+
+</body>
+</html>
