@@ -632,18 +632,12 @@
         <div class="status-card taped">
             <h2>Poplings is out</h2>
             <p>Free on iPhone and iPad, with no ads, nothing to buy, and no internet needed.</p>
-            <!-- ⚠️ ONE EDIT ON APPROVAL DAY: put the URL below into href.
-                   https://apps.apple.com/app/id6798829208
-                 The numeric id is REAL (Apple ID 6798829208, from App Store
-                 Connect > App Information). It is left OUT of href on purpose
-                 because the listing is not published yet: verified 2026-08-10,
-                 that URL returns 404 until Apple approves the app, and a button
-                 that 404s is worse than one that does nothing. Check it with
-                   curl -s -o /dev/null -w '%{http_code}' -L https://apps.apple.com/app/id6798829208
-                 and paste it in once that prints 200.
-                 The same id is what a "write a review" link would need:
-                   https://apps.apple.com/app/id6798829208?action=write-review -->
-            <a class="btn btn-appstore" href="">
+            <!-- ✅ WIRED 2026-08-18, the day Poplings was approved. The numeric id
+                 is Apple ID 6798829208 from App Store Connect. Verified live:
+                 https://apps.apple.com/app/id6798829208 returns 200.
+                 A "write a review" link, if ever wanted, is the same URL plus
+                 ?action=write-review -->
+            <a class="btn btn-appstore" href="https://apps.apple.com/app/id6798829208">
                 <svg class="apple-logo" viewBox="0 0 17 21" aria-hidden="true" focusable="false">
                     <path d="M14.03 11.1c.01-2.2 1.79-3.26 1.87-3.31-1.02-1.5-2.61-1.7-3.17-1.73-1.35-.14-2.63.79-3.31.79-.69 0-1.74-.77-2.86-.75-1.47.02-2.83.86-3.58 2.17-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.24 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.87.69 1.19-.02 1.95-1.08 2.68-2.14.84-1.22 1.19-2.4 1.21-2.46-.03-.01-2.32-.89-2.34-3.53M11.9 4.2c.6-.73 1-1.74.89-2.75-.86.04-1.91.58-2.53 1.3-.56.64-1.04 1.67-.91 2.66.96.07 1.94-.49 2.55-1.21" fill="currentColor"/>
                 </svg>
