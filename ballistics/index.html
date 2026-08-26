@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holdover — Know Your Holds</title>
-    <meta name="description" content="Holdover is a precision ballistics app for iOS. Build your rifle's profile in 60 seconds — drop tables, wind holds, guided zeroing, saved handloads, and shareable DOPE cards. 850+ factory loads. Works fully offline.">
-    <meta property="og:title" content="Holdover — Know Your Holds">
-    <meta property="og:description" content="Precision ballistics for iOS. Drop tables, wind holds, guided zeroing, and DOPE cards built from your rifle, your load, your zero. 850+ factory loads, G1/G7 solver, fully offline.">
+    <title>Holdover: Know Your Holds</title>
+    <meta name="description" content="Holdover is a precision ballistics app for iOS. Build your rifle's profile in 60 seconds: drop tables, wind holds, guided zeroing, and shareable DOPE cards. Nearly 900 factory loads. Works fully offline.">
+    <meta property="og:title" content="Holdover: Know Your Holds">
+    <meta property="og:description" content="Precision ballistics for iOS. Drop tables, wind holds, guided zeroing, and DOPE cards built from your rifle, your load, your zero. Nearly 900 factory loads, G1/G7 solver, fully offline.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://holdoversoftware.com">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'><circle cx='512' cy='512' r='400' fill='%23E8B84B'/><g stroke='%231a1a1a' fill='none' stroke-linecap='round'><line x1='272' y1='512' x2='752' y2='512' stroke-width='22'/><line x1='512' y1='272' x2='512' y2='512' stroke-width='22'/><line x1='512' y1='512' x2='512' y2='752' stroke-width='22'/><line x1='462' y1='572' x2='562' y2='572' stroke-width='22'/><line x1='442' y1='632' x2='582' y2='632' stroke-width='22'/><line x1='422' y1='692' x2='602' y2='692' stroke-width='22'/></g><circle cx='512' cy='512' r='20' fill='%231a1a1a'/></svg>">
@@ -114,7 +114,7 @@
             }
         }
 
-        /* Top bar — veteran owned */
+        /* Top bar: veteran owned */
         .topbar {
             display: flex;
             align-items: center;
@@ -223,6 +223,53 @@
 
         .coming-soon-card .email:hover {
             opacity: 0.8;
+        }
+
+        .beta-card {
+            max-width: 440px;
+            width: 100%;
+            padding: 26px 28px 24px;
+            background: #222;
+            border: 1px solid #3a3222;
+            border-radius: 16px;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        .beta-card .beta-eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #E8B84B;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .beta-card .beta-line {
+            font-size: 0.95rem;
+            color: #c9c9c9;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .beta-btn {
+            display: inline-block;
+            background: #E8B84B;
+            color: #1a1a1a;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 13px 30px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: opacity 0.15s;
+        }
+
+        .beta-btn:hover { opacity: 0.88; }
+
+        .beta-card .beta-fine {
+            font-size: 0.78rem;
+            color: #8a8a8a;
+            margin-top: 12px;
         }
 
         /* Features Section */
@@ -544,8 +591,21 @@
         <h1 class="wordmark">HOLDOVER</h1>
         <p class="wordmark-sub">BALLISTICS</p>
         <p class="hero-line">Know your holds.</p>
-        <p class="tagline">Build your rifle's ballistic profile in under a minute — then get the drop, wind, and turret clicks you can trust at any distance. Zero faster, log every range session, and carry your DOPE anywhere. No signal required.</p>
+        <p class="tagline">Build your rifle's ballistic profile in under a minute, then get the drop, wind, and turret clicks you can trust at any distance. Zero faster, log every range session, and carry your DOPE anywhere. No signal required.</p>
         <p class="entity-line">A product of CM Collective LLC.</p>
+
+        <!--
+          BETA CTA. The button currently opens an email so the page is never broken.
+          When the TestFlight public link exists, swap the href on .beta-btn for it and change
+          the label to "Join the beta on TestFlight". One line, nothing else to touch.
+        -->
+        <div class="beta-card">
+            <p class="beta-eyebrow">Now in beta</p>
+            <p class="beta-line">Holdover is in testing before it reaches the App Store. If you
+            shoot, I want your criticism while it can still change the app.</p>
+            <a class="beta-btn" href="mailto:hello@holdoversoftware.com?subject=Holdover%20beta">Ask for a beta invite</a>
+            <p class="beta-fine">iPhone or iPad, iOS 17 or newer. Delivered through TestFlight.</p>
+        </div>
 
         <div class="coming-soon-card">
             <p class="prompt">Questions or feedback?</p>
@@ -570,7 +630,7 @@
                     <circle cx="43" cy="37" r="3" fill="#E8B84B"/>
                 </svg>
                 <h3>A Solver You Can Trust</h3>
-                <p>A full point-mass solver — G1/G7 drag models, wind, spin drift, and Coriolis — validated against published reference trajectories. Real exterior ballistics math, computed right on your&nbsp;phone.</p>
+                <p>A full point-mass solver: G1 and G7 drag, wind, spin drift and Coriolis. Cross-checked against an independently written second solver, agreeing to within 0.02&nbsp;MOA at 1,000&nbsp;yards.</p>
             </div>
 
             <div class="feature-card">
@@ -581,7 +641,7 @@
                     <circle cx="24" cy="24" r="2" fill="#E8B84B"/>
                 </svg>
                 <h3>Guided Zeroing</h3>
-                <p>Tap your shots on the target, get exact turret corrections — direction, clicks, and MOA. Every confirmed zero is saved, so you always know when and how you last&nbsp;zeroed.</p>
+                <p>Tap your shots on the target and get exact turret corrections: direction, clicks, and MOA. Every confirmed zero is saved, so you always know when and how you last&nbsp;zeroed.</p>
             </div>
 
             <div class="feature-card">
@@ -591,8 +651,8 @@
                     <line x1="12" y1="24" x2="36" y2="24" stroke="#E8B84B" stroke-width="2" stroke-linecap="round"/>
                     <line x1="12" y1="32" x2="36" y2="32" stroke="#E8B84B" stroke-width="2" stroke-linecap="round"/>
                 </svg>
-                <h3>850+ Factory Loads</h3>
-                <p>Federal, Hornady, Berger, Nosler, Barnes, Lapua, and 20+ more brands across 70 calibers — with lab-measured BCs flagged so you know where your numbers come&nbsp;from.</p>
+                <h3>Nearly 900 Factory Loads</h3>
+                <p>Federal, Hornady, Berger, Nosler, Barnes, Lapua and 20+ more brands across 70 calibers, with lab-measured BCs flagged so you know where your numbers come&nbsp;from.</p>
             </div>
 
             <div class="feature-card">
@@ -607,8 +667,8 @@
                     <!-- rim / base -->
                     <line x1="38" y1="17" x2="38" y2="31" stroke="#E8B84B" stroke-width="2.5" stroke-linecap="round"/>
                 </svg>
-                <h3>Your Handloads, Saved</h3>
-                <p>Build a personal load library — handloads with powder, charge, and OAL, or factory loads not in our catalog. Save once, reuse across every&nbsp;rifle.</p>
+                <h3>Enter Any Load by Hand</h3>
+                <p>Shooting something the catalog does not list, or rolling your own? Enter it yourself: bullet weight, BC, muzzle velocity, and the powder, charge and OAL behind&nbsp;it.</p>
             </div>
 
             <div class="feature-card">
@@ -624,7 +684,28 @@
                     <line x1="32" y1="8" x2="32" y2="40" stroke="#E8B84B" stroke-width="1.5"/>
                 </svg>
                 <h3>DOPE Card, Modernized</h3>
-                <p>Pick your distances, choose clean or detailed, and share a print-ready card — built from your rifle, your load, your&nbsp;zero.</p>
+                <p>Pick your distances, choose clean or detailed, and share a print-ready card built from your rifle, your load and your&nbsp;zero.</p>
+            </div>
+
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="17" stroke="#E8B84B" stroke-width="2.5"/>
+                    <path d="M24 15v9l6 5" stroke="#E8B84B" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <h3>Set Up in Under a Minute</h3>
+                <p>Mostly tapping, not typing. A short walkthrough on first run, help on every field that needs it, and quick actions on the home screen that jump straight to your holds or your&nbsp;zero.</p>
+            </div>
+
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="9" y="5" width="30" height="38" rx="4" stroke="#E8B84B" stroke-width="2.5"/>
+                    <line x1="9" y1="13" x2="39" y2="13" stroke="#E8B84B" stroke-width="2"/>
+                    <line x1="16" y1="21" x2="32" y2="21" stroke="#E8B84B" stroke-width="2"/>
+                    <line x1="16" y1="28" x2="32" y2="28" stroke="#E8B84B" stroke-width="2"/>
+                    <line x1="16" y1="35" x2="26" y2="35" stroke="#E8B84B" stroke-width="2"/>
+                </svg>
+                <h3>iPhone and iPad</h3>
+                <p>One purchase, both devices. The layout holds a readable column on a 13-inch iPad instead of stretching a phone screen, and it rotates either&nbsp;way.</p>
             </div>
 
             <div class="feature-card">
@@ -639,7 +720,7 @@
                     <line x1="4" y1="47" x2="17" y2="34" stroke="#E8B84B" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
                 <h3>Works Anywhere. Offline.</h3>
-                <p>No account, no signal, no subscription required. Every calculation runs on your device, and Field Mode keeps the screen bright and awake — at the bench or in the&nbsp;field.</p>
+                <p>No account, no signal, no subscription required. Every calculation runs on your device, and Field Mode keeps the screen bright and awake, at the bench or in the&nbsp;field.</p>
             </div>
         </div>
     </section>
@@ -653,28 +734,28 @@
                 <div class="phone-frame">
                     <img src="../assets/screenshots/rifle-list.png" alt="Holdover rifle list with multiple saved rifle profiles and their zero status" loading="lazy" width="1206" height="2622">
                 </div>
-                <p class="phone-caption">Every rifle in one place — each with its load and last-zeroed status.</p>
+                <p class="phone-caption">Quick actions up top, then every rifle with its load and last-zeroed status.</p>
             </div>
 
             <div class="phone-col">
                 <div class="phone-frame">
                     <img src="../assets/screenshots/drop-table.png" alt="Holdover drop table showing MOA holds from 100 to 800 yards for a .308 Win 175gr load" loading="lazy" width="1206" height="2622">
                 </div>
-                <p class="phone-caption">Drop &amp; wind holds, with the exact assumptions behind every number.</p>
+                <p class="phone-caption">Drop and wind holds, the assumptions behind every number, and Field Mode for bright sun.</p>
             </div>
 
             <div class="phone-col">
                 <div class="phone-frame">
                     <img src="../assets/screenshots/zero-assistant.png" alt="Holdover Zero Assistant with a plotted shot group and last-zeroed summary" loading="lazy" width="1206" height="2622">
                 </div>
-                <p class="phone-caption">Tap your shots, get exact turret corrections — and a saved zero history.</p>
+                <p class="phone-caption">Tap your shots, get exact turret corrections, and keep a saved zero history.</p>
             </div>
 
             <div class="phone-col">
                 <div class="phone-frame">
                     <img src="../assets/screenshots/dope-card.png" alt="Holdover print-ready DOPE card with selectable distances" loading="lazy" width="1206" height="2622">
                 </div>
-                <p class="phone-caption">A clean, print-ready DOPE card — pick your distances. Print it or share it.</p>
+                <p class="phone-caption">A print-ready range card. Pick your distances, then print it or share it.</p>
             </div>
         </div>
     </section>
